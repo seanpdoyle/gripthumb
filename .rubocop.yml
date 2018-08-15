@@ -1,0 +1,6 @@
+inherit_from:
+  - https://github.com/thoughtbot/guides/raw/master/style/ruby/.rubocop.yml
+
+Layout/IndentArray:
+  Enabled: true
+  EnforcedStyle: "consistent"
