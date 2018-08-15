@@ -18,7 +18,7 @@ class SongSearch
     def search_term
       [
         song_search.artist,
-        song_search.title,
+        song_search.song,
       ].map(&:downcase).join(" ")
     end
 

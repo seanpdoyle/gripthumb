@@ -3,12 +3,15 @@
     <%= t(".record") %>
   </button>
 
-  <form action="/identifications" method="post" class="form form--enabled" data-remote="true" data-target="identifications.form">
-    <label for="artist">Artist Name</label>
-    <input id="artist" type="text" name="identification[artist]" data-target="identifications.artist">
-    <label for="title">Song Title</label>
-    <input id="title" type="text" name="identification[title]" data-target="identifications.title">
+  <%= form_with model: @identification, class: "form form--enabled", data: {
+    target: "identifications.form",
+  } do |f| %>
+    <%= f.label :artist %>
+    <%= f.text_field :artist, data: { target: "identifications.artist" } %>
 
-    <input type="submit" value="Lookup">
-  </form>
+    <%= f.label :song %>
+    <%= f.text_field :song, data: { target: "identifications.song" } %>
+
+    <%= f.submit %>
+  <% end %>
 </section>

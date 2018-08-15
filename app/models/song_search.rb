@@ -4,7 +4,7 @@ class SongSearch
 
   attribute :cache, default: {}
   attribute :artist, :string
-  attribute :title, :string
+  attribute :song, :string
 
   def results
     request = Request.new(self, cache: cache)

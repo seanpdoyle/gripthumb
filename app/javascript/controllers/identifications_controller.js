@@ -1,7 +1,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["form", "artist", "title", "recordButton"]
+  static targets = ["form", "artist", "song", "recordButton"]
 
   connect() {
     if (window.webkit) {
@@ -22,7 +22,7 @@ export default class extends Controller {
     this.recordButtonTarget.disabled = false
 
     this.artistTarget.value = track.artist
-    this.titleTarget.value = track.title
+    this.songTarget.value = track.title
     this.formTarget.submit()
   }
 

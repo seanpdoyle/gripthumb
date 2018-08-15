@@ -10,7 +10,7 @@ class PartsController < ApplicationController
   def song_search_params
     params.permit!.slice(
       :artist,
-      :title,
+      :song,
     )
   end
 
