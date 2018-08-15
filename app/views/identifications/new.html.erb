@@ -1,17 +1,14 @@
-<section class="identifications" data-controller="identifications">
+<section class="identifications" data-controller="identifications" data-action="gripthumb:results@document->identifications#publish">
   <button class="record-button" data-action="identifications#record" data-target="identifications.recordButton">
     <%= t(".record") %>
   </button>
 
   <form action="/identifications" method="post" class="form form--enabled" data-remote="true" data-target="identifications.form">
     <label for="artist">Artist Name</label>
-    <input id="artist" type="text" name="identification[artist]">
+    <input id="artist" type="text" name="identification[artist]" data-target="identifications.artist">
     <label for="title">Song Title</label>
-    <input id="title" type="text" name="identification[title]">
+    <input id="title" type="text" name="identification[title]" data-target="identifications.title">
 
     <input type="submit" value="Lookup">
   </form>
-
-  <ul data-action="gripthumb:results@document->identifications#publish" data-target="identifications.results">
-  </ul>
 </section>
