@@ -3,6 +3,14 @@
 #
 # true, false, on, off, yes, no
 en:
+  helpers:
+    label:
+      identification:
+        artist: "Artist Name"
+        song: "Song Title"
+    submit:
+      identification:
+        create: "Lookup"
   identifications:
     new:
       record: "Record"
