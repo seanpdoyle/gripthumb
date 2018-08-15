@@ -1,7 +1,13 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["results"]
+  static targets = ["recordButton", "results"]
+
+  connect() {
+    if (window.webkit) {
+      this.recordButtonTarget.classList.add("record-button--enabled");
+    }
+  }
 
   record() {
     this.gripthumb.postMessage("startRecording")
@@ -13,6 +19,6 @@ export default class extends Controller {
   }
 
   get gripthumb() {
-    return webkit.messageHandlers.GripThumb
+    return window.webkit.messageHandlers.GripThumb
   }
 }
