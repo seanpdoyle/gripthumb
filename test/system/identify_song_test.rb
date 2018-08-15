@@ -1,25 +1,18 @@
 require "test_helper"
 require_relative "../rack_system_test_case"
+require_relative "../helpers/mocked_song_search"
 
 class IdentifySongTestCase < RackSystemTestCase
-  test "Looks up the Skate Video soundtrack for a song" do
-    response_html = Pathname(fixture_path).join("files", "songsearch.html")
-    stub_request(:post, "http://www.skatevideosite.com/songsearch").
-      with(
-        body: {
-          page: "songsearch",
-          select: "2",
-          searchterm: "duster echo, bravo",
-        }.to_query,
-      ).to_return(body: File.new(response_html))
+  include MockedSongSearch
 
+  test "Looks up the Skate Video soundtrack for a song" do
     visit root_path
-    fill_in label(:identification, :artist), with: "Duster"
-    fill_in label(:identification, :song), with: "Echo, Bravo"
+    fill_in label(:identification, :artist), with: mocked_result.artist
+    fill_in label(:identification, :song), with: mocked_result.song
     click_on submit(:identification)
 
-    assert page.has_text?("The 917 Video")
-    assert page.has_text?("Aaron Loreth")
+    assert page.has_text?(mocked_result.video)
+    assert page.has_text?(mocked_result.part)
   end
 
   def submit(key, action = :create)

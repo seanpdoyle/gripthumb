@@ -1,22 +1,19 @@
 require "test_helper"
+require_relative "../helpers/mocked_song_search"
 
 class SongSearchTest < ActiveSupport::TestCase
+  include MockedSongSearch
+
   test "results are scraped from SkateVideoSite" do
-    response_html = Pathname(fixture_path).join("files", "songsearch.html")
-    stub_request(:post, "http://www.skatevideosite.com/songsearch").
-      with(
-        body: {
-          page: "songsearch",
-          select: "2",
-          searchterm: "duster echo, bravo",
-        }.to_query,
-      ).to_return(body: File.new(response_html))
-    song_search = SongSearch.new(artist: "Duster", title: "Echo, Bravo")
+    song_search = SongSearch.new(
+      artist: mocked_result.artist,
+      title: mocked_result.song,
+    )
 
     results = song_search.results
 
     assert_equal results, [
-      { part: { video: "The 917 Video", name: "Aaron Loreth" } },
+      { part: { video: mocked_result.video, name: mocked_result.part } },
     ]
   end
 end
