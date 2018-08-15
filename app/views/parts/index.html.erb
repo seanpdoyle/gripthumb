@@ -1,4 +1,6 @@
 <dl>
-  <dt>The 917 Video</dt>
-  <dd>Aaron Loreth</dd>
+  <% @parts.each do |part| %>
+    <dt><%= part.video %></dt>
+    <dd><%= part.name %></dd>
+  <% end %>
 </dl>
