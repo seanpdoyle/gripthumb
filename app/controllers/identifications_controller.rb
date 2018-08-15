@@ -1,4 +1,5 @@
 class IdentificationsController < ApplicationController
-  def new
+  def create
+    redirect_to parts_url
   end
 end

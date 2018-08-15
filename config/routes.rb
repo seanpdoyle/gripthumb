@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  root to: "identifications#new"
+  resources :identifications, only: [:new, :create]
+  resources :parts, only: [:index]
+
+  root to: redirect("/identifications/new")
 end
