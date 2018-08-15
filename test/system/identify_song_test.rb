@@ -3,6 +3,16 @@ require_relative "../rack_system_test_case"
 
 class IdentifySongTestCase < RackSystemTestCase
   test "Looks up the Skate Video soundtrack for a song" do
+    response_html = Pathname(fixture_path).join("files", "songsearch.html")
+    stub_request(:post, "http://www.skatevideosite.com/songsearch").
+      with(
+        body: {
+          page: "songsearch",
+          select: "2",
+          searchterm: "duster echo, bravo",
+        }.to_query,
+      ).to_return(body: File.new(response_html))
+
     visit root_path
     fill_in label(:identification, :artist), with: "Duster"
     fill_in label(:identification, :song), with: "Echo, Bravo"

@@ -14,7 +14,7 @@ class PartsController < ApplicationController
         :name,
       )
 
-      Part.new(attributes)
+      Part.new(*attributes)
     end
   end
 end

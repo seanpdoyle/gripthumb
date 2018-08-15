@@ -1,0 +1,292 @@
+﻿	
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/normalize.css">
+  <link rel="stylesheet" href="/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="/navigation.css" />
+  <link rel="stylesheet" type="text/css" href="/component.css" />
+  <link rel="icon" type="image/gif" href="/images/favicon.gif">
+  <script src="/modernizr.custom.js"></script>
+  <script src="/jquery-3.2.1.min.js"></script>
+		
+   <title>Skate video song search, skateboarding soundtracks music | Skatevideosite</title>
+    <meta name="description" content="Search for a song from all skate video soundtracks. Over 1000 skate video soundtracks listed with over 12000 songs. Skateboarding music" />
+   
+	<script type="text/javascript">
+	$(function() {
+		$('#expand').click(function(){
+		  $('.submenu').slideToggle();
+		});
+	});
+	</script>
+	
+	<script type="text/javascript">
+	$(function() {
+		$('#expand2').click(function(){
+		  $('.submenu2').slideToggle();
+		});
+	});
+	</script>
+	
+	<script type="text/javascript">
+	$(function() {
+		$('#expand3').click(function(){
+		  $('.submenu3').slideToggle();
+		});
+	});
+	</script>
+</head>
+
+
+<body class="cbp-spmenu-push">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_EN/sdk.js#xfbml=1&version=v2.10&appId=1417625791792402";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<div class="container">
+
+    <div class="row" style="margin-top: 2%;">
+	
+      <div class="four columns">
+		<a href="/"><img src="/images/logo.png" style="float: left;" alt="" /></a>
+	  </div>
+	</div>
+
+	<div class="row">
+	  
+	  <div class="ten columns" style="padding-top: 15px;">
+		<form method="post" action="/search" style="margin-bottom: 0px; float: left; width: 100%;">
+		<div class="showmenu" id="showLeft"></div>
+		<input type="text" placeholder="Search" id="searchterm" class="searchterm" name="searchterm" />
+		<input type="image" src="/images/search.png" style="height: 35px; margin-left: 7px; float: left;" />
+		</form>
+	  </div>
+	
+	</div>
+	
+	<!--Navigation-->
+	<div class="row" style="margin-bottom: 2%;">
+		
+<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+	<img id="showLeftb" style="float: right; height: 25px; margin-right: 10px;" src="/images/slide.png" alt="Menu" />
+			
+			<a href="#" style="color: #CC0000; margin-top: 5px;">Skate videos</a>
+			<a href="/skatevideos" style="margin-left: 25px;">Skate video list</a>
+			<a href="/skate-videos-online" style="margin-left: 25px;">Skate videos online</a>
+			<a href="/video-parts" style="margin-left: 25px;">Skate video parts</a>
+			<a href="/covers" style="margin-left: 25px;">Skate video covers</a>
+			<a href="/songsearch" style="margin-left: 25px;">Song search</a>
+			<a href="/add-skate-video" style="margin-left: 25px;">Submit skate video</a>
+			
+			<a href="#" style="color: #CC0000; margin-top: 7px;">Browse videos by</a>
+			<a href="/skaters" style="margin-left: 25px;">Skater</a>
+			<a href="/companies" style="margin-left: 25px;">Company</a>
+			<a href="/filmmakers" style="margin-left: 25px;">Filmmaker</a>
+			<a href="/login"><img src="/images/login.png" alt="" class="menuicon" />Login</a>							
+		</nav>
+		
+		<div class="container">
+			<div class="main">
+				<section>
+					<!-- Class "cbp-spmenu-open" gets applied to menu -->
+					
+				</section>
+			</div>
+		</div>
+		
+	<div class="largemenu" style="display: none";>
+
+	<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+		<script src="/classie.js"></script>
+		<script>
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+				menuRight = document.getElementById( 'cbp-spmenu-s2' ),
+				menuTop = document.getElementById( 'cbp-spmenu-s3' ),
+				menuBottom = document.getElementById( 'cbp-spmenu-s4' ),
+				showLeft = document.getElementById( 'showLeft' ),
+				showRight = document.getElementById( 'showRight' ),
+				showTop = document.getElementById( 'showTop' ),
+				showBottom = document.getElementById( 'showBottom' ),
+				showLeftPush = document.getElementById( 'showLeftPush' ),
+				showRightPush = document.getElementById( 'showRightPush' ),
+				body = document.body;
+
+			showLeft.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeft' );
+			};
+			
+			showLeftb.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeft' );
+			};
+			
+			hideLeft.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeft' );
+			};
+			
+
+			function disableOther( button ) {
+				if( button !== 'showLeft' ) {
+					classie.toggle( showLeft, 'disabled' );
+				}
+			}
+		</script>
+		
+		
+
+	
+<div class="band navigation">
+    
+	<nav class="container primary">
+	
+		<div class="sixteen columns">
+		
+			<ul>
+			
+			
+ 
+			
+			<li><a href="/skatevideos">Skate videos</a>
+			
+				<ul>
+				<li><a href="/skatevideos">List all skate videos</a></li>
+				<li><a href="/skate-videos-online">Skate videos online</a></li>
+				<li><a href="/video-parts">Video parts</a></li>
+				<li><a href="/covers">Covers</a></li>
+				<li><a href="/add-skate-video">Add skate video</a></li>
+				</ul>
+			
+			</li>
+			
+			<li><a href="/songsearch">Song search</a></li>
+			<li><a href="#">Browse by</a>
+				<ul>
+				<li><a href="/skaters">Skater</a></li>
+				<li><a href="/companies">Company</a></li>
+				<li><a href="/filmmakers">Filmmaker</a></li>
+				</ul>
+			</li>
+			
+			
+			
+			</li>
+			<li><a href="/login">Login</a></li>			
+			
+			</ul>
+			
+			
+			</div>
+			
+	        </nav><!--end container-->
+			</div><!--end band-->
+
+			</div> 
+	
+	</div>	
+	<!--End navigation-->
+
+</div>
+
+
+<!--CONTENT
+---------------->
+
+<div class="container">
+
+	<div class="row">
+	
+	<div class="twelve columns">
+
+<h1>Skate video song search</h1>
+
+
+
+
+<p>Want to know if a song is already used in a skate video?<br />
+Here you can search all skate video soundtracks with artist or song name.</p>
+
+<form method="post" action="/songsearch">
+<p style="margin-top: 10px;">
+<input type="hidden" name="page" value="songsearch" />
+<input type="hidden" name="select" value="2" />
+<input type="text" name="searchterm" />
+<input type="submit" name="submit" value="Search for artist or track" />
+</p>
+</form>
+
+
+<p><strong>Duster Echo, Bravo</strong> - Search results</p><table class="skatevideolist">
+<tr>
+	<td style="width: 120px; padding-right: 7px;"><a href="/skatevideos/the-917-video/soundtrack"><img src="/images/phpThumb.php?src=covers/the-917-video.jpg&amp;w=150"  alt="The 917 Video cover" title="The 917 Video cover" class="videothumb" /></a></td>
+	<td style="padding-left: 0px;"><a href="/skatevideos/the-917-video/soundtrack" class="videotitle">The 917
+Video</a> <a href="/skatevideos/the-917-video/online"><img src="/images/icons/videolink.png" style="width: 15px;" alt="Video link" title="Video link" /></a><br />
+	<img src="/images/stars/full.gif" style="margin-right: 2px;" alt="" /><img src="/images/stars/full.gif" style="margin-right: 2px;" alt="" /><img src="/images/stars/full.gif" style="margin-right: 2px;" alt="" /><img src="/images/stars/full.gif" style="margin-right: 2px;" alt="" /><img src="/images/stars/halfb.gif" style="margin-right: 2px;" alt="" /><br />
+	<a href="/index.php?page=skatevideos&amp;year=2017" class="year">2017</a><br />
+	23,616 views
+	</td>
+</tr>
+<tr><td colspan="2" style="padding-bottom: 20px; border-bottom: 1px solid #cccccc;"><strong>Songs found</strong><br />
+Aaron Loreth - <strong>Duster - Echo, Bravo</strong><br />
+</td></tr>
+</table>
+<!-- FOOTER
+ -------------------->
+  <div class="container">
+    
+    <div class="row" style="margin-top: 5%;">
+      <div class="offset-by-two eight columns">
+        <ul>
+            <p style="text-align: center;">&#169; Copyright 2005-2018 Skatevideosite.com<br />
+			<a href="http://www.facebook.com/Skatevideosite" rel="external" title="Skatevideosite on Facebook"><img src="/images/facebook.gif" alt="Skatevideosite on Facebook" style="margin-right: 5px; height: 35px;" /></a>
+			<a href="http://instagram.com/skatevideosite" rel="external" title="Skatevideosite on Instagram"><img src="/images/instagram.gif" alt="Skatevideosite on Instagram" style="margin-right: 5px; height: 35px;" /></a>
+			<a href="/contact" title="Contact by mail"><img src="/images/mail2.gif" alt="Mail" style="margin-right: 5px; height: 35px;" /></a>
+		</p>
+        </ul>
+      </div>                  
+    </div>
+  </div>
+
+	</div>
+	
+	</div>
+
+</div>
+
+<!-- GOOGLE ANALYTICS
+ -------------------->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-3279673-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+</div>
+
+</body>
+</html>
