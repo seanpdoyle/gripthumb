@@ -1,4 +1,12 @@
 .identifications {
+  .form {
+    display: none;
+  }
+
+  .form--enabled {
+    display: block;
+  }
+
   .record-button {
     display: none;
   }

@@ -1,11 +1,12 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["recordButton", "results"]
+  static targets = ["form", "recordButton", "results"]
 
   connect() {
     if (window.webkit) {
       this.recordButtonTarget.classList.add("record-button--enabled");
+      this.formTarget.classList.remove("form--enabled")
     }
   }
 

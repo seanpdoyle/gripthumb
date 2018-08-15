@@ -3,6 +3,15 @@
     <%= t(".record") %>
   </button>
 
+  <form action="/identifications" method="post" class="form form--enabled" data-remote="true" data-target="identifications.form">
+    <label for="artist">Artist Name</label>
+    <input id="artist" type="text" name="identification[artist]">
+    <label for="title">Song Title</label>
+    <input id="title" type="text" name="identification[title]">
+
+    <input type="submit" value="Lookup">
+  </form>
+
   <ul data-action="gripthumb:results@document->identifications#publish" data-target="identifications.results">
   </ul>
 </section>
