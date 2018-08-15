@@ -2,13 +2,24 @@ class PartsController < ApplicationController
   Part = Struct.new(:video, :name)
 
   def index
-    @parts = build_parts
+    @parts = fetch_parts
   end
 
   private
 
-  def build_parts
-    params.fetch(:parts, []).map do |part|
+  def song_search_params
+    params.permit!.slice(
+      :artist,
+      :title,
+    )
+  end
+
+  def song_search
+    SongSearch.new(song_search_params.merge(cache: Rails.cache))
+  end
+
+  def fetch_parts
+    song_search.results.map do |part|
       attributes = part.fetch(:part).values_at(
         :video,
         :name,
