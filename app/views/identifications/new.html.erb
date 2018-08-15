@@ -1,0 +1,8 @@
+<section data-controller="identifications">
+  <form data-action="identifications#record">
+    <button><%= t(".record") %></button>
+  </form>
+
+  <ul data-action="gripthumb:results@document->identifications#publish" data-target="identifications.results">
+  </ul>
+</section>
