@@ -23,7 +23,7 @@ export default class extends Controller {
 
     this.artistTarget.value = track.artist
     this.songTarget.value = track.title
-    this.formTarget.submit()
+    this.formTarget.querySelector('[type="submit"]').click()
   }
 
   get gripthumb() {
