@@ -1,6 +1,13 @@
-<dl>
+<header>
+  <p><%= params.fetch(:artist) %></p>
+  <p><%= params.fetch(:song) %></p>
+</header>
+
+<ul class="parts">
   <% @parts.each do |part| %>
-    <dt><%= part.video %></dt>
-    <dd><%= part.name %></dd>
+    <li class="parts--part">
+      <p><%= part.video %></p>
+      <p><%= part.name %></p>
+    </li>
   <% end %>
-</dl>
+</ul>
