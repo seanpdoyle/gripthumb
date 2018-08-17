@@ -3,8 +3,6 @@
   "private": true,
   "dependencies": {
     "@rails/webpacker": "3.5",
-    "bourbon": "^5.1.0",
-    "bourbon-neat": "^3.0.0",
     "rails-ujs": "^5.2.1",
     "stimulus": "^1.0.1",
     "turbolinks": "^5.1.1"

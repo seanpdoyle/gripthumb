@@ -1,6 +1,65 @@
-@import "~bourbon/core/bourbon";
-@import "~bourbon-neat/core/neat";
-@import "base/base";
+$red: #c60812;
 
-@import "pages/parts";
-@import "pages/songs";
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.parts {
+  align-items: flex-start;
+  flex: 1;
+
+  &--part {
+    border-bottom-style: solid;
+    padding: 1rem;
+    width: 100%;
+  }
+}
+
+.songs {
+  align-items: flex-end;
+  flex: 0;
+
+  &--form {
+    display: none;
+  }
+
+  &--form__enabled {
+    @media only screen and (min-width: 1024px) {
+      display: block;
+    }
+  }
+
+  &--record-button {
+    background-color: $red;
+    display: block;
+    font-size: 1rem;
+    height: 100%;
+    padding: 3rem;
+    width: 100%;
+
+    @media only screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &--record-button__enabled {
+    display: block;
+  }
+}
