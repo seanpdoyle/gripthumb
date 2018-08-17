@@ -5,20 +5,20 @@ export default class extends Controller {
 
   connect() {
     if (window.webkit) {
-      this.recordButtonTarget.classList.add("record-button--enabled")
-      this.formTarget.classList.remove("form--enabled")
+      this.recordButtonTarget.classList.add("songs--record-button__enabled")
+      this.formTarget.classList.remove("songs--form__enabled")
     }
   }
 
   record() {
     this.recordButtonTarget.disabled = true
-    this.element.classList.add("identifications--recording")
+    this.element.classList.add("songs__recording")
     this.gripthumb.postMessage("startRecording")
   }
 
   publish(event) {
     let [track] = event.detail
-    this.element.classList.remove("identifications--recording")
+    this.element.classList.remove("songs__recording")
     this.recordButtonTarget.disabled = false
 
     this.artistTarget.value = track.artist

@@ -1,22 +1,22 @@
-$identifications-neat-grid: (
+$songs-neat-grid: (
   columns: 12,
   gutter: 50px,
   media: 1000px,
 );
 $red: #c60812;
 
-.identifications {
-  .form {
+.songs {
+  &--form {
     display: none;
   }
 
-  .form--enabled {
-    @include grid-media($identifications-neat-grid) {
+  &--form__enabled {
+    @include grid-media($songs-neat-grid) {
       display: block;
     }
   }
 
-  .record-button {
+  &--record-button {
     background-color: $red;
     display: block;
     font-size: 1rem;
@@ -24,12 +24,12 @@ $red: #c60812;
     padding: 3rem;
     width: 100%;
 
-    @include grid-media($identifications-neat-grid) {
+    @include grid-media($songs-neat-grid) {
       display: none;
     }
   }
 
-  .record-button--enabled {
+  &--record-button__enabled {
     display: block;
   }
 }

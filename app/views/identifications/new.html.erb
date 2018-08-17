@@ -1,9 +1,9 @@
-<section class="identifications" data-controller="identifications" data-action="gripthumb:results@document->identifications#publish">
-  <button class="record-button" data-action="identifications#record" data-target="identifications.recordButton">
+<section class="songs" data-controller="identifications" data-action="gripthumb:results@document->identifications#publish">
+  <button class="songs--record-button" data-action="identifications#record" data-target="identifications.recordButton">
     <%= t(".record") %>
   </button>
 
-  <%= form_with model: @identification, class: "form form--enabled", data: {
+  <%= form_with model: @identification, class: "songs--form songs--form__enabled", data: {
     target: "identifications.form",
   } do |f| %>
     <%= f.label :artist %>
