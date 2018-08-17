@@ -1,17 +1,4 @@
-<section class="songs" data-controller="identifications" data-action="gripthumb:results@document->identifications#publish">
-  <button class="songs--record-button" data-action="identifications#record" data-target="identifications.recordButton">
-    <%= t(".record") %>
-  </button>
+<ul class="parts">
+</ul>
 
-  <%= form_with model: @identification, class: "songs--form songs--form__enabled", data: {
-    target: "identifications.form",
-  } do |f| %>
-    <%= f.label :artist %>
-    <%= f.text_field :artist, data: { target: "identifications.artist" } %>
-
-    <%= f.label :song %>
-    <%= f.text_field :song, data: { target: "identifications.song" } %>
-
-    <%= f.submit %>
-  <% end %>
-</section>
+<%= render "identifications/form", identification: Identification.new %>
