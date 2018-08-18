@@ -18,6 +18,7 @@ export default class extends Controller {
 
   initialize() {
     this.progress = 0
+    this.attempts = 0
   }
 
   connect() {
@@ -34,6 +35,7 @@ export default class extends Controller {
   }
 
   record() {
+    this.attempts++
     this.recordButtonTarget.disabled = true
     this.element.classList.add("songs__recording")
     this.gripthumb.postMessage("startRecording")
@@ -44,10 +46,17 @@ export default class extends Controller {
     this.element.classList.remove("songs__recording")
     this.recordButtonTarget.disabled = false
 
-    this.searchForSong(song || unknownSong)
+    if (song) {
+      this.searchForSong(song)
+    } else if (this.attempts < 5) {
+      this.record()
+    } else {
+      this.searchForSong(unknownSong)
+    }
   }
 
   searchForSong(song) {
+    this.attempts = 0
     this.artistTarget.value = song.artist
     this.nameTarget.value = song.title
     this.tuiTarget.value = song.tui
