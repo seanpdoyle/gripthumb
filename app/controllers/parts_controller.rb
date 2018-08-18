@@ -1,6 +1,4 @@
 class PartsController < ApplicationController
-  Part = Struct.new(:video, :name)
-
   def index
     @parts = fetch_parts
   end

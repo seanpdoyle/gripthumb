@@ -4,12 +4,7 @@
 </header>
 
 <ul class="parts">
-  <% @parts.each do |part| %>
-    <li class="parts--part">
-      <p><%= part.video %></p>
-      <p><%= part.name %></p>
-    </li>
-  <% end %>
+  <%= render(@parts) || render("empty") %>
 </ul>
 
 <%= render "identifications/form", identification: Identification.new %>
