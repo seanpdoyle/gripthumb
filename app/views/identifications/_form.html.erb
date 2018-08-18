@@ -1,4 +1,7 @@
 <section class="songs" data-controller="identifications" data-action="gripthumb:results@document->identifications#publish">
+  <progress data-action="gripthumb:progress@document->identifications#trackProgress" data-target="identifications.progress" value="0" max="100">
+    0%
+  </progress>
   <button class="songs--record-button" data-action="identifications#record" data-target="identifications.recordButton">
     <%= t(".record") %>
   </button>
