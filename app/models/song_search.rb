@@ -3,11 +3,10 @@ class SongSearch
   include ActiveModel::Attributes
 
   attribute :cache, default: {}
-  attribute :artist, :string
-  attribute :song, :string
+  attribute :song
 
   def results
-    request = Request.new(self, cache: cache)
+    request = Request.new(song, cache: cache)
     response_html = Nokogiri::HTML(request.response.body)
     document = Document.new(response_html)
 

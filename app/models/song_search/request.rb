@@ -1,8 +1,8 @@
 class SongSearch
   class Request
-    def initialize(song_search, cache: {})
+    def initialize(song, cache: {})
       @cache = cache
-      @song_search = song_search
+      @song = song
     end
 
     def response
@@ -13,12 +13,12 @@ class SongSearch
 
     private
 
-    attr_reader :cache, :song_search
+    attr_reader :cache, :song
 
     def search_term
       [
-        song_search.artist,
-        song_search.song,
+        song.artist,
+        song.name,
       ].map(&:downcase).join(" ")
     end
 

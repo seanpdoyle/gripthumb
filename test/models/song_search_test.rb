@@ -6,7 +6,6 @@ class SongSearchTest < ActiveSupport::TestCase
 
   test "results are scraped from SkateVideoSite" do
     song_search = SongSearch.new(
-      artist: mocked_result.artist,
       song: mocked_result.song,
     )
 

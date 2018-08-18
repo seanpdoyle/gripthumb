@@ -1,29 +1,25 @@
 class SongsController < ApplicationController
-  def index
-    @parts = fetch_parts
+  def show
+    @song = find_song
   end
 
   private
 
-  def song_search_params
+  def find_song
+    if params[:id] == "-1"
+      UnknownSong.new
+    else
+      Song.new(song_params)
+    end
+  end
+
+  def song_params
     params.permit!.slice(
       :artist,
-      :song,
+      :name,
+    ).merge(
+      cache: Rails.cache,
+      tui: params[:id],
     )
-  end
-
-  def song_search
-    SongSearch.new(song_search_params.merge(cache: Rails.cache))
-  end
-
-  def fetch_parts
-    song_search.results.map do |part|
-      attributes = part.fetch(:part).values_at(
-        :video,
-        :name,
-      )
-
-      Part.new(*attributes)
-    end
   end
 end

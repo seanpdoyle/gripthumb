@@ -1,7 +1,20 @@
 import { Controller } from "stimulus"
 
+let unknownSong = {
+  tui: "",
+  artist: "",
+  name: "",
+}
+
 export default class extends Controller {
-  static targets = ["form", "artist", "song", "recordButton", "progress"]
+  static targets = [
+    "artist",
+    "form",
+    "name",
+    "progress",
+    "recordButton",
+    "tui",
+  ]
 
   initialize() {
     this.progress = 0
@@ -27,12 +40,17 @@ export default class extends Controller {
   }
 
   publish(event) {
-    let [track] = event.detail
+    let [song] = event.detail
     this.element.classList.remove("songs__recording")
     this.recordButtonTarget.disabled = false
 
-    this.artistTarget.value = track.artist
-    this.songTarget.value = track.title
+    this.searchForSong(song || unknownSong)
+  }
+
+  searchForSong(song) {
+    this.artistTarget.value = song.artist
+    this.nameTarget.value = song.title
+    this.tuiTarget.value = song.tui
     this.formTarget.querySelector('[type="submit"]').click()
   }
 

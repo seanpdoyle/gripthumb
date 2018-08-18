@@ -7,7 +7,8 @@ en:
     label:
       identification:
         artist: "Artist Name"
-        song: "Song Title"
+        name: "Song Title"
+        tui: "Gracenote Song TUI"
     submit:
       identification:
         create: "Lookup"
@@ -17,3 +18,6 @@ en:
   songs:
     empty:
       text: "We couldn't find any parts to this song."
+  unknown_songs:
+    unknown_song:
+      title: "We can't tell what song that is. Try again!"

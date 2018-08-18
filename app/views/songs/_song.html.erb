@@ -1,0 +1,8 @@
+<header>
+  <p><%= song.artist %></p>
+  <p><%= song.name %></p>
+</header>
+
+<ul class="parts">
+  <%= render(song.parts) || render("songs/empty") %>
+</ul>

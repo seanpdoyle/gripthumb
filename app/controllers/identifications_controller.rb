@@ -1,6 +1,8 @@
 class IdentificationsController < ApplicationController
   def create
-    redirect_to songs_url(redirect_params)
+    tui = redirect_params.delete(:tui).presence || -1
+
+    redirect_to song_url(tui, params: redirect_params)
   end
 
   private
@@ -8,7 +10,8 @@ class IdentificationsController < ApplicationController
   def redirect_params
     params.require(:identification).permit(
       :artist,
-      :song,
+      :name,
+      :tui,
     )
   end
 end

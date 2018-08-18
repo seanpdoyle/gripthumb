@@ -1,37 +1,39 @@
 module MockedSongSearch
-  MockResult = Struct.new(:artist, :song, :video, :part)
+  MockResult = Struct.new(:song, :video, :part)
 
   def self.included(base)
     base.setup do
-      fixture_root = Pathname.new(fixture_path).join("files")
-      response_html = fixture_root.join("songsearch.html").read
-      empty_html = fixture_root.join("songsearch-empty.html").read
+      response_html = response_fixture_path.join("songsearch.html").read
       form_data = {
         page: "songsearch",
         select: "2",
         searchterm: [
-          mocked_result.artist,
-          mocked_result.song,
+          mocked_result.song.artist,
+          mocked_result.song.name,
         ].map(&:downcase).join(" "),
       }
-
-      stubbed_post = stub_request(
-        :post,
-        "http://www.skatevideosite.com/songsearch",
-      )
-
-      stubbed_post.
-        with(body: form_data.to_query).
-        to_return(body: response_html)
-      stubbed_post.
-        to_return(body: empty_html)
+      stub_song_search(form_data.to_query, response: response_html)
     end
+  end
+
+  def response_fixture_path
+    Pathname.new(fixture_path).join("files")
+  end
+
+  def empty_html
+    response_fixture_path.join("songsearch-empty.html").read
+  end
+
+  def stub_song_search(body, response: empty_html)
+    stub_request(
+      :post,
+      "http://www.skatevideosite.com/songsearch",
+    ).with(body: body).to_return(body: response)
   end
 
   def mocked_result
     MockResult.new(
-      "Duster",
-      "Echo, Bravo",
+      Song.new(artist: "Duster", name: "Echo, Bravo", tui: 8420973),
       "The 917 Video",
       "Aaron Loreth",
     )
