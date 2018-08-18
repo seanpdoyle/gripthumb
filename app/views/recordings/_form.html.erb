@@ -1,0 +1,23 @@
+<section class="songs" data-controller="recordings" data-action="gripthumb:results@document->recordings#search">
+  <progress data-action="gripthumb:progress@document->recordings#trackProgress" data-target="recordings.progress" value="0" max="100">
+    0%
+  </progress>
+  <button class="songs--record-button" data-action="recordings#start" data-target="recordings.button">
+    <%= t(".record") %>
+  </button>
+
+  <%= form_with model: recording, class: "songs--form songs--form__enabled", data: {
+    target: "recordings.form",
+  } do |f| %>
+    <%= f.label :tui %>
+    <%= f.text_field :tui, data: { target: "recordings.tui" } %>
+
+    <%= f.label :artist %>
+    <%= f.text_field :artist, data: { target: "recordings.artist" } %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, data: { target: "recordings.name" } %>
+
+    <%= f.submit %>
+  <% end %>
+</section>

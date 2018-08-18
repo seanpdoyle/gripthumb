@@ -2,17 +2,17 @@ require "test_helper"
 require_relative "../rack_system_test_case"
 require_relative "../helpers/mocked_song_search"
 
-class IdentifySongTestCase < RackSystemTestCase
+class RecordingSongTestCase < RackSystemTestCase
   include MockedSongSearch
 
   test "Looks up the Skate Video soundtrack for a song" do
     stub_song_search_with_mock
 
     visit root_path
-    fill_in label(:identification, :tui), with: mocked_result.song.tui
-    fill_in label(:identification, :artist), with: mocked_result.song.artist
-    fill_in label(:identification, :name), with: mocked_result.song.name
-    click_on submit(:identification)
+    fill_in label(:recording, :tui), with: mocked_result.song.tui
+    fill_in label(:recording, :artist), with: mocked_result.song.artist
+    fill_in label(:recording, :name), with: mocked_result.song.name
+    click_on submit(:recording)
 
     assert page.has_text?(mocked_result.video)
     assert page.has_text?(mocked_result.part)
@@ -22,10 +22,10 @@ class IdentifySongTestCase < RackSystemTestCase
     stub_song_search(/the\+artist/, html: :empty)
 
     visit root_path
-    fill_in label(:identification, :artist), with: "The Artist"
-    fill_in label(:identification, :name), with: "Nobody Skated to this"
-    fill_in label(:identification, :tui), with: "abc123"
-    click_on submit(:identification)
+    fill_in label(:recording, :artist), with: "The Artist"
+    fill_in label(:recording, :name), with: "Nobody Skated to this"
+    fill_in label(:recording, :tui), with: "abc123"
+    click_on submit(:recording)
 
     assert page.has_text?(translate("songs.empty.text"))
   end
@@ -34,10 +34,10 @@ class IdentifySongTestCase < RackSystemTestCase
     stub_song_search(//, html: :empty)
 
     visit root_path
-    fill_in label(:identification, :artist), with: ""
-    fill_in label(:identification, :name), with: ""
-    fill_in label(:identification, :tui), with: ""
-    click_on submit(:identification)
+    fill_in label(:recording, :artist), with: ""
+    fill_in label(:recording, :name), with: ""
+    fill_in label(:recording, :tui), with: ""
+    click_on submit(:recording)
 
     assert page.has_text?(translate("unknown_songs.unknown_song.title"))
   end

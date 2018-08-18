@@ -1,4 +1,4 @@
-class IdentificationsController < ApplicationController
+class RecordingsController < ApplicationController
   def create
     tui = redirect_params.delete(:tui).presence || -1
 
@@ -8,7 +8,7 @@ class IdentificationsController < ApplicationController
   private
 
   def redirect_params
-    params.require(:identification).permit(
+    params.require(:recording).permit(
       :artist,
       :name,
       :tui,

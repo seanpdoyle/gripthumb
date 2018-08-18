@@ -1,4 +1,4 @@
-class Identification
+class Recording
   include ActiveModel::Model
   include ActiveModel::Attributes
 

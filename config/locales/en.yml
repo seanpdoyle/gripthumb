@@ -5,14 +5,14 @@
 en:
   helpers:
     label:
-      identification:
+      recording:
         artist: "Artist Name"
         name: "Song Title"
         tui: "Gracenote Song TUI"
     submit:
-      identification:
+      recording:
         create: "Lookup"
-  identifications:
+  recordings:
     new:
       record: "Record"
   songs:

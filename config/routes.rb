@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :identifications, only: [:new, :create]
+  resources :recordings, only: [:new, :create]
   resources :songs, only: [:show]
 
-  root to: redirect("/identifications/new")
+  root to: redirect("/recordings/new")
 end

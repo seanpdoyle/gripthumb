@@ -9,10 +9,10 @@ let unknownSong = {
 export default class extends Controller {
   static targets = [
     "artist",
+    "button",
     "form",
     "name",
     "progress",
-    "recordButton",
     "tui",
   ]
 
@@ -23,7 +23,7 @@ export default class extends Controller {
 
   connect() {
     if (window.webkit) {
-      this.recordButtonTarget.classList.add("songs--record-button__enabled")
+      this.buttonTarget.classList.add("songs--record-button__enabled")
       this.formTarget.classList.remove("songs--form__enabled")
     }
   }
@@ -34,28 +34,28 @@ export default class extends Controller {
     this.progress = progress;
   }
 
-  record() {
+  start() {
     this.attempts++
-    this.recordButtonTarget.disabled = true
+    this.buttonTarget.disabled = true
     this.element.classList.add("songs__recording")
     this.gripthumb.postMessage("startRecording")
   }
 
-  publish(event) {
+  search(event) {
     let [song] = event.detail
     this.element.classList.remove("songs__recording")
-    this.recordButtonTarget.disabled = false
+    this.buttonTarget.disabled = false
 
     if (song) {
-      this.searchForSong(song)
+      this.submit(song)
     } else if (this.attempts < 5) {
-      this.record()
+      this.start()
     } else {
-      this.searchForSong(unknownSong)
+      this.submit(unknownSong)
     }
   }
 
-  searchForSong(song) {
+  submit(song) {
     this.attempts = 0
     this.artistTarget.value = song.artist
     this.nameTarget.value = song.title
