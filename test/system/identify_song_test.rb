@@ -6,6 +6,8 @@ class IdentifySongTestCase < RackSystemTestCase
   include MockedSongSearch
 
   test "Looks up the Skate Video soundtrack for a song" do
+    stub_song_search_with_mock
+
     visit root_path
     fill_in label(:identification, :tui), with: mocked_result.song.tui
     fill_in label(:identification, :artist), with: mocked_result.song.artist
@@ -17,7 +19,7 @@ class IdentifySongTestCase < RackSystemTestCase
   end
 
   test "Shows an empty list when there are no results" do
-    stub_song_search(/the\+artist/)
+    stub_song_search(/the\+artist/, html: :empty)
 
     visit root_path
     fill_in label(:identification, :artist), with: "The Artist"
@@ -29,7 +31,7 @@ class IdentifySongTestCase < RackSystemTestCase
   end
 
   test "Shows an error message when the song can't be identified" do
-    stub_song_search(//)
+    stub_song_search(//, html: :empty)
 
     visit root_path
     fill_in label(:identification, :artist), with: ""

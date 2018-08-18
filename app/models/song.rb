@@ -2,6 +2,8 @@ class Song
   include ActiveModel::Model
   include ActiveModel::Attributes
 
+  PARENTHESIZED_PHRASES = /(\[|\().*(\]|\))/
+
   attribute :artist, :string
   attribute :name, :string
   attribute :cache, default: {}
@@ -16,6 +18,13 @@ class Song
 
       Part.new(*attributes)
     end
+  end
+
+  def name
+    super.
+      gsub(PARENTHESIZED_PHRASES, "").
+      squish.
+      strip
   end
 
   private
