@@ -21,7 +21,7 @@ class IdentifySongTestCase < RackSystemTestCase
     fill_in label(:identification, :song), with: "Not a Song"
     click_on submit(:identification)
 
-    assert page.has_text?(translate("parts.empty.text"))
+    assert page.has_text?(translate("songs.empty.text"))
   end
 
   def submit(key, action = :create)

@@ -1,6 +1,6 @@
 class IdentificationsController < ApplicationController
   def create
-    redirect_to parts_url(redirect_params)
+    redirect_to songs_url(redirect_params)
   end
 
   private

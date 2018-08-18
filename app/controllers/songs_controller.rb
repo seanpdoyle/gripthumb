@@ -1,4 +1,4 @@
-class PartsController < ApplicationController
+class SongsController < ApplicationController
   def index
     @parts = fetch_parts
   end

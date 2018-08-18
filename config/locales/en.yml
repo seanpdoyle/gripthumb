@@ -14,6 +14,6 @@ en:
   identifications:
     new:
       record: "Record"
-  parts:
+  songs:
     empty:
       text: "We couldn't find any parts to this song."
