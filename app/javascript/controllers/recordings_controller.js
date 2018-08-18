@@ -1,3 +1,4 @@
+import Bridge from "../bridge"
 import { Controller } from "stimulus"
 
 let unknownSong = {
@@ -12,33 +13,19 @@ export default class extends Controller {
     "button",
     "form",
     "name",
-    "progress",
     "tui",
   ]
 
   initialize() {
-    this.progress = 0
     this.attempts = 0
-  }
-
-  connect() {
-    if (window.webkit) {
-      this.buttonTarget.classList.add("songs--record-button__enabled")
-      this.formTarget.classList.remove("songs--form__enabled")
-    }
-  }
-
-  trackProgress(event) {
-    let progress = event.detail.progress;
-
-    this.progress = progress;
   }
 
   start() {
     this.attempts++
     this.buttonTarget.disabled = true
     this.element.classList.add("songs__recording")
-    this.gripthumb.postMessage("startRecording")
+
+    Bridge.postMessage("startRecording")
   }
 
   search(event) {
@@ -61,18 +48,5 @@ export default class extends Controller {
     this.nameTarget.value = song.title
     this.tuiTarget.value = song.tui
     this.formTarget.querySelector('[type="submit"]').click()
-  }
-
-  get gripthumb() {
-    return window.webkit.messageHandlers.GripThumb
-  }
-
-  set progress(percent) {
-    this.progressTarget.value = percent
-    this.progressTarget.text = `${percent}%`
-  }
-
-  get progress() {
-    return parseInt(this.progressTarget.value, 10);
   }
 }

@@ -40,12 +40,6 @@ body {
     display: none;
   }
 
-  &--form__enabled {
-    @media only screen and (min-width: 1024px) {
-      display: block;
-    }
-  }
-
   &--record-button {
     background-color: $red;
     display: block;
@@ -53,13 +47,5 @@ body {
     height: 100%;
     padding: 3rem;
     width: 100%;
-
-    @media only screen and (min-width: 1024px) {
-      display: none;
-    }
-  }
-
-  &--record-button__enabled {
-    display: block;
   }
 }
