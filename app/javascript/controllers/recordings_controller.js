@@ -13,6 +13,7 @@ export default class extends Controller {
     "button",
     "form",
     "name",
+    "progress",
     "tui",
   ]
 
@@ -24,14 +25,13 @@ export default class extends Controller {
     this.attempts++
     this.buttonTarget.disabled = true
     this.element.classList.add("songs__recording")
+    this.interval = setInterval(() => this.progress += 3, 100)
 
     Bridge.postMessage("startRecording")
   }
 
   search(event) {
     let [song] = event.detail
-    this.element.classList.remove("songs__recording")
-    this.buttonTarget.disabled = false
 
     if (song) {
       this.submit(song)
@@ -44,9 +44,23 @@ export default class extends Controller {
 
   submit(song) {
     this.attempts = 0
+    clearInterval(this.interval)
+
+    this.element.classList.remove("songs__recording")
+    this.buttonTarget.disabled = false
+
     this.artistTarget.value = song.artist
     this.nameTarget.value = song.title
     this.tuiTarget.value = song.tui
     this.formTarget.querySelector('[type="submit"]').click()
+  }
+
+  get progress() {
+    return parseInt(this.progressTarget.value, 10);
+  }
+
+  set progress(progress) {
+    this.progressTarget.value = progress
+    this.progressTarget.text = `${progress.value}%`
   }
 }

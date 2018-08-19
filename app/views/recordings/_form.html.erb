@@ -1,5 +1,8 @@
 <section class="songs" data-controller="recordings" data-action="gripthumb:results@document->recordings#search">
+
   <button class="songs--record-button" data-action="recordings#start" data-target="recordings.button">
+    <progress data-target="recordings.progress" value="0" max="100">0%</progress>
+
     <%= t(".record") %>
   </button>
 
