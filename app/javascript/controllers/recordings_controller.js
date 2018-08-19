@@ -13,7 +13,6 @@ export default class extends Controller {
     "button",
     "form",
     "name",
-    "progress",
     "tui",
   ]
 
@@ -25,7 +24,6 @@ export default class extends Controller {
     this.attempts++
     this.buttonTarget.disabled = true
     this.element.classList.add("songs__recording")
-    this.interval = setInterval(() => this.progress += 3, 100)
 
     Bridge.postMessage("startRecording")
   }
@@ -53,14 +51,5 @@ export default class extends Controller {
     this.nameTarget.value = song.title
     this.tuiTarget.value = song.tui
     this.formTarget.querySelector('[type="submit"]').click()
-  }
-
-  get progress() {
-    return parseInt(this.progressTarget.value, 10);
-  }
-
-  set progress(progress) {
-    this.progressTarget.value = progress
-    this.progressTarget.text = `${progress.value}%`
   }
 }

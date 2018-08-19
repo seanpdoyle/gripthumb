@@ -13,8 +13,8 @@ en:
       recording:
         create: "Lookup"
   recordings:
-    new:
-      record: "Record"
+    form:
+      button: "Record"
   songs:
     empty:
       text: "We couldn't find any parts to this song."
