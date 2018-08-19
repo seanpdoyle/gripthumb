@@ -22,9 +22,14 @@ body {
   margin: 0;
 }
 
+p {
+  font-size: 48px;
+}
+
 .parts {
   align-items: flex-start;
   flex: 1;
+  overflow-y: scroll;
 
   &--part {
     border-bottom-style: solid;
@@ -44,6 +49,7 @@ body {
   &--record-button {
     background-color: $red;
     border-radius: 50%;
+    box-shadow: 8px 0 6px -6px black;
     display: block;
     height: 100%;
     margin: auto;
@@ -62,11 +68,21 @@ body {
     }
   }
 
-  &__recording {
-    .songs--record-button {
-      .recording {
-        transform: translateY(0);
-      }
+  &__recording &--record-button {
+    .recording {
+      transform: translateY(0);
     }
+  }
+}
+
+.song {
+  &__header {
+    width: 100%;
+  }
+
+  &__artist,
+  &__name {
+    margin: auto;
+    text-align: center;
   }
 }
