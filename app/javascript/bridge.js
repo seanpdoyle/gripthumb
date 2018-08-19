@@ -6,9 +6,9 @@ if (window.webkit) {
   bridge = {
     postMessage() {
       let results = [{
-        artist: "Duster",
-        title: "Echo, Bravo",
-        tui: "8420973",
+        artist: "The Righteous Brothers",
+        title: "Unchained Melody",
+        tui: "181482457",
       }]
       let event = new CustomEvent("gripthumb:results", { detail: results })
 

@@ -1,6 +1,6 @@
 <section class="songs" data-controller="recordings" data-action="gripthumb:results@document->recordings#search">
   <button aria-label="<%= t(".button") %>" class="songs--record-button" data-action="recordings#start" data-target="recordings.button">
-    <%= render "microphone.svg", height: 240, width: 240 %>
+    <%= render "microphone.svg", height: 200, width: 200 %>
   </button>
 
   <%= form_with class: "songs--form", model: recording, data: { target: "recordings.form" } do |f| %>
