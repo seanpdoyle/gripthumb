@@ -1,10 +1,18 @@
-import Bridge from "../bridge"
+import connectBridge, { Bridge } from "../connect-bridge"
 import { Controller } from "stimulus"
 
-let unknownSong = {
-  tui: "",
+type Song = {
+  artist: string
+  name: string
+  title: string
+  tui: string
+}
+
+const unknownSong: Song = {
   artist: "",
   name: "",
+  title: "",
+  tui: "",
 }
 
 export default class extends Controller {
@@ -15,9 +23,18 @@ export default class extends Controller {
     "name",
     "tui",
   ]
+  readonly artistTarget: HTMLInputElement
+  readonly buttonTarget: HTMLButtonElement
+  readonly formTarget: HTMLFormElement
+  readonly nameTarget: HTMLInputElement
+  readonly tuiTarget: HTMLInputElement
+
+  attempts: number
+  bridge: Bridge
 
   initialize() {
     this.attempts = 0
+    this.bridge = connectBridge(window);
   }
 
   start() {
@@ -25,7 +42,7 @@ export default class extends Controller {
     this.buttonTarget.disabled = true
     this.element.classList.add("songs__recording")
 
-    Bridge.postMessage("startRecording")
+    this.bridge.postMessage("startRecording")
   }
 
   search(event) {
@@ -40,9 +57,8 @@ export default class extends Controller {
     }
   }
 
-  submit(song) {
+  submit(song: Song) {
     this.attempts = 0
-    clearInterval(this.interval)
 
     this.element.classList.remove("songs__recording")
     this.buttonTarget.disabled = false
@@ -50,6 +66,6 @@ export default class extends Controller {
     this.artistTarget.value = song.artist
     this.nameTarget.value = song.title
     this.tuiTarget.value = song.tui
-    this.formTarget.querySelector('[type="submit"]').click()
+    this.formTarget.submit()
   }
 }
