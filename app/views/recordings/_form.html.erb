@@ -3,7 +3,7 @@
     <%= render "microphone.svg", height: 200, width: 200 %>
   </button>
 
-  <%= form_with class: "songs--form", model: recording, data: { target: "recordings.form" } do |f| %>
+  <%= form_with class: "songs--form", model: recording do |f| %>
     <%= f.label :tui %>
     <%= f.text_field :tui, data: { target: "recordings.tui" } %>
 
@@ -13,6 +13,6 @@
     <%= f.label :name %>
     <%= f.text_field :name, data: { target: "recordings.name" } %>
 
-    <%= f.submit %>
+    <%= f.submit data: { target: "recordings.submit" } %>
   <% end %>
 </section>
