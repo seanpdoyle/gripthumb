@@ -18,8 +18,6 @@ body {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   margin: 0;
 }
 
@@ -28,36 +26,42 @@ p {
 }
 
 .parts {
-  align-items: flex-start;
-  flex: 1;
   margin-bottom: 0;
   margin-top: 0;
-  overflow-y: scroll;
+  padding: 0;
 }
 
 .parts--part {
-  border-bottom-style: solid;
-  padding: 1rem;
+  border-top-style: solid;
+  list-style-type: none;
   width: 100%;
+  padding: 10px;
+
+  &:first-of-type {
+    border-top-style: none;
+  }
 }
 
-.songs {
-  align-items: flex-end;
+.recordings {
   box-shadow: 0 -3px 16px 1px rgba(0, 0, 0, .25);
-  flex: 0;
   padding: 2rem;
+  position: absolute;
+  display: flex;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
-.songs--form {
+.recordings--form {
   display: none;
 }
 
-.songs--record-button {
+.recordings--record-button {
   background-color: $red;
   border-radius: 50%;
   box-shadow: 0 3px 16px 1px rgba(0, 0, 0, .25);
   display: block;
-  height: 100%;
   margin: auto;
   padding: 4rem;
 
@@ -74,7 +78,7 @@ p {
   }
 }
 
-.songs__recording .songs--record-button {
+.recordings__recording .recordings--record-button {
   .recording {
     transform: translateY(0);
   }

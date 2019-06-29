@@ -13,7 +13,7 @@ en:
       recording:
         create: "Lookup"
   recordings:
-    form:
+    new:
       button: "Record"
   songs:
     empty:

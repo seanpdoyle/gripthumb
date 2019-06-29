@@ -1,3 +1,8 @@
-<%= render(@song) %>
+<header class="song__header">
+  <p class="song__name"><%= song.name %></p>
+  <p class="song__artist"><%= song.artist %></p>
+</header>
 
-<%= render "recordings/form", recording: Recording.new %>
+<ul class="parts">
+  <%= render(song.parts) || render("songs/empty") %>
+</ul>

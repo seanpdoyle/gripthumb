@@ -2,7 +2,13 @@ class RecordingsController < ApplicationController
   def create
     tui = redirect_params.delete(:tui).presence || -1
 
-    redirect_to song_url(tui, params: redirect_params)
+    redirect_to song_url(tui, params: redirect_params), turbolinks: :advance
+  end
+
+  def new
+    render(locals: {
+      recording: Recording.new
+    })
   end
 
   private

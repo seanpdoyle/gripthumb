@@ -40,7 +40,7 @@ export default class extends Controller {
   start() {
     this.attempts++
     this.buttonTarget.disabled = true
-    this.element.classList.add("songs__recording")
+    this.element.classList.add("recordings__recording")
 
     this.bridge.postMessage("startRecording")
   }
@@ -60,7 +60,7 @@ export default class extends Controller {
   submit(song: Song) {
     this.attempts = 0
 
-    this.element.classList.remove("songs__recording")
+    this.element.classList.remove("recordings__recording")
     this.buttonTarget.disabled = false
 
     this.artistTarget.value = song.artist

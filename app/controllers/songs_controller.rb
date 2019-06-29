@@ -1,6 +1,8 @@
 class SongsController < ApplicationController
   def show
-    @song = find_song
+    render(locals: {
+      song: find_song,
+    })
   end
 
   private
