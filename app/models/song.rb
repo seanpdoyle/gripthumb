@@ -1,7 +1,4 @@
-class Song
-  include ActiveModel::Model
-  include ActiveModel::Attributes
-
+class Song < ApplicationModel
   PARENTHESIZED_PHRASES = /(\[|\().*(\]|\))/
 
   attribute :artist, :string
@@ -10,14 +7,7 @@ class Song
   attribute :tui, :integer
 
   def parts
-    search.results.map do |part|
-      attributes = part.fetch(:part).values_at(
-        :video,
-        :name
-      )
-
-      Part.new(*attributes)
-    end
+    search.results.map { |result| Part.new video: result.video, name: result.part }
   end
 
   def name

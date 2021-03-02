@@ -2,17 +2,24 @@
   "name": "gripthumb",
   "private": true,
   "dependencies": {
+    "@hotwired/turbo": "^7.0.0-beta.4",
+    "@rails/webpacker": "5.2.1",
+    "audio-recorder-polyfill": "^0.4.1",
     "cssnext": "^1.8.4",
+    "form-request-submit-polyfill": "^2.0.0",
     "postcss-cssnext": "^3.1.0",
-    "rails-ujs": "^5.2.1",
-    "stimulus": "^1.0.1",
-    "trix": "^1.3.1",
-    "ts-loader": "^6.0.4",
-    "turbolinks": "^5.1.1",
-    "typescript": "^3.5.2"
+    "stimulus": "^2.0.0"
+  },
+  "resolutions": {
+    "@hotwired/turbo": "https://github.com/hotwired/dev-builds.git#@hotwired/turbo/6cbfb7f"
   },
   "devDependencies": {
-    "@rails/webpacker": "^5.2.1",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/dom-mediacapture-record": "^1.0.7",
+    "babel-plugin-transform-typescript": "^7.0.0-alpha.19",
+    "fork-ts-checker-webpack-plugin": "^6.1.0",
+    "ts-loader": "^6.0.4",
+    "typescript": "^4.2.2",
     "webpack-dev-server": "^3.11.2"
   }
 }

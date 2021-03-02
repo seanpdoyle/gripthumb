@@ -2,22 +2,4 @@
 # the default I18n backend:
 #
 # true, false, on, off, yes, no
-en:
-  helpers:
-    label:
-      recording:
-        artist: "Artist Name"
-        name: "Song Title"
-        tui: "Gracenote Song TUI"
-    submit:
-      recording:
-        create: "Lookup"
-  recordings:
-    new:
-      button: "Record"
-  songs:
-    empty:
-      text: "We couldn't find any parts to this song."
-  unknown_songs:
-    unknown_song:
-      title: "We can't tell what song that is. Try again!"
+en: {}

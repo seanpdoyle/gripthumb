@@ -1,0 +1,87 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.audd.io/audd/
+    body:
+      encoding: ASCII-8BIT
+      string: "------WebKitFormBoundaryzjxJ1B8J4f3GjVIm\r\nContent-Disposition: form-data;
+        name=\"return\"\r\n\r\napple_music,spotify\r\n------WebKitFormBoundaryzjxJ1B8J4f3GjVIm\r\nContent-Disposition:
+        form-data; name=\"api_token\"\r\n\r\n<%= Rails.application.credentials.audd![:api_token] %>\r\n------WebKitFormBoundaryzjxJ1B8J4f3GjVIm\r\nContent-Disposition:
+        form-data; name=\"file\"; filename=\"\"\r\nContent-Type: application/octet-stream\r\n\r\n\r\n------WebKitFormBoundaryzjxJ1B8J4f3GjVIm--\r\n"
+    headers:
+      Version:
+      - HTTP/1.1
+      Host:
+      - api.audd.io
+      Connection:
+      - keep-alive
+      Accept:
+      - text/vnd.turbo-stream.html, text/html, application/xhtml+xml
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_2) AppleWebKit/537.36 (KHTML,
+        like Gecko) HeadlessChrome/88.0.4324.192 Safari/537.36
+      Origin:
+      - http://127.0.0.1:62364
+      Sec-Fetch-Site:
+      - same-origin
+      Sec-Fetch-Mode:
+      - cors
+      Sec-Fetch-Dest:
+      - empty
+      Referer:
+      - http://127.0.0.1:62364/recordings/new
+      Accept-Encoding:
+      - gzip, deflate, br
+      Accept-Language:
+      - en-US
+      Cookie:
+      - ''
+      X-Forwarded-For:
+      - 127.0.0.1
+      Content-Length:
+      - '428'
+      Content-Type:
+      - multipart/form-data; boundary=----WebKitFormBoundaryzjxJ1B8J4f3GjVIm
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 03 Mar 2021 05:49:25 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d21c9bddb4d1a93d0d340b7f67c458f361614750565; expires=Fri, 02-Apr-21
+        05:49:25 GMT; path=/; domain=.audd.io; HttpOnly; SameSite=Lax; Secure
+      Access-Control-Allow-Origin:
+      - "*"
+      Cf-Cache-Status:
+      - DYNAMIC
+      Cf-Request-Id:
+      - '08983b5c4c0000554e61964000000001'
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"group":"cf-nel","endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=LNiUdIFNj7anIJIo47CIFagYdSXdmXv2X7KJIwJrFHCefs00lOyKo9Q8wGRb40DL4rHKdnEBVXiSQjdYlnnDM95sbOxfzjWQ104Eu942T4dKHrMxFzT4Sg%3D%3D"}],"max_age":604800}'
+      Nel:
+      - '{"max_age":604800,"report_to":"cf-nel"}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 62a094da1ea1554e-EWR
+      Content-Encoding:
+      - br
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        IaQEACBWzanszhYo5DpzqkJXmORD9CF828b+ikeJIHLVjE74OtE5za073eYhvV2ZsobZZVG0sx/UMPYUGiiNXmVv7M41ytdxtMm1vyn8R4FO6qjOuLXdF6x6RJiF9WMAaYJaiYUpU6ga6dDd4DF2JVQPTx4PX6o3i6dB0BqFxywgoQccGoWki7sCz+gbPWTxSoMuNwppkJ9BYQetbJHbqI8iqCZDqINdjqFGqQpywS/UQW+pMQytTNMg6wJWpmqyn5pPAwM=
+  recorded_at: Wed, 03 Mar 2021 05:49:25 GMT
+recorded_with: VCR 6.0.0

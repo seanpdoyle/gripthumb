@@ -1,0 +1,10 @@
+<header class="song__header">
+  <p class="song__name"><%= @song.name %></p>
+  <p class="song__artist"><%= @song.artist %></p>
+</header>
+
+<ul class="parts">
+  <%= render(@song.parts) || render("songs/empty") %>
+</ul>
+
+<%= render "recordings/form" %>

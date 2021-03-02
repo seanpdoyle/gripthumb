@@ -1,0 +1,20 @@
+<section id="recorder" class="recordings" data-controller="search" data-action="turbo:submit-start->search#handleNextResponse" data-turbo-permanent>
+  <form action="<%= audd_path %>" method="post" enctype="multipart/form-data" data-controller="recording">
+    <input type="hidden" name="return" value="apple_music,spotify">
+
+    <button type="button" class="recordings--record-button" data-action="click->recording#start">
+      <%= render partial: "microphone", formats: :svg, locals: { height: 200, width: 200 } %>
+    </button>
+
+    <fieldset <%= tag.attributes hidden: !Rails.env.test? %>>
+      <label for="file">File</label>
+      <input type="file" id="file" name="file">
+      <button type="submit">Submit</button>
+    </fieldset>
+  </form>
+
+  <form method="get" action="<%= parts_path %>" data-search-target="form">
+    <input type="hidden" name="artist">
+    <input type="hidden" name="title">
+  </form>
+</section>

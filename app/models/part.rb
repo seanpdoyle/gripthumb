@@ -1,3 +1,4 @@
-Part = Struct.new(:video, :name) {
-  include ActiveModel::Conversion
-}
+class Part < ApplicationModel
+  attribute :video, :string
+  attribute :name, :string
+end

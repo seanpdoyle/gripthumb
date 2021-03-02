@@ -1,15 +1,8 @@
-class SongSearch
-  include ActiveModel::Model
-  include ActiveModel::Attributes
-
+class SongSearch < ApplicationModel
   attribute :cache, default: {}
   attribute :song
 
   def results
-    request = Request.new(song, cache: cache)
-    response_html = Nokogiri::HTML(request.response.body)
-    document = Document.new(response_html)
-
-    document.parts
+    SongSearch::Crawler.new(song).results
   end
 end
