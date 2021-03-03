@@ -1,3 +1,3 @@
-Part = Struct.new(:video, :name) do
+Part = Struct.new(:video, :name) {
   include ActiveModel::Conversion
-end
+}

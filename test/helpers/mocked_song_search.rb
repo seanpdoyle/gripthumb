@@ -11,7 +11,7 @@ module MockedSongSearch
       form_data = {
         page: "songsearch",
         select: "2",
-        searchterm: body.map(&:downcase).join(" "),
+        searchterm: body.map(&:downcase).join(" ")
       }.to_query
     when Regexp
       form_data = body
@@ -19,9 +19,9 @@ module MockedSongSearch
 
     response_html = response_fixture_path.join("songsearch", "#{html}.html")
 
-    stub_request(:post, "http://www.skatevideosite.com/songsearch").
-      with(body: form_data).
-      to_return(body: response_html.read)
+    stub_request(:post, "http://www.skatevideosite.com/songsearch")
+      .with(body: form_data)
+      .to_return(body: response_html.read)
   end
 
   def stub_song_search_with_mock
@@ -34,7 +34,7 @@ module MockedSongSearch
     MockResult.new(
       Song.new(artist: "Duster", name: "Echo, Bravo", tui: 8420973),
       "The 917 Video",
-      "Aaron Loreth",
+      "Aaron Loreth"
     )
   end
 end

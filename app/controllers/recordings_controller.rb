@@ -17,7 +17,7 @@ class RecordingsController < ApplicationController
     params.require(:recording).permit(
       :artist,
       :name,
-      :tui,
+      :tui
     )
   end
 end

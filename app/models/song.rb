@@ -13,7 +13,7 @@ class Song
     search.results.map do |part|
       attributes = part.fetch(:part).values_at(
         :video,
-        :name,
+        :name
       )
 
       Part.new(*attributes)
@@ -21,10 +21,10 @@ class Song
   end
 
   def name
-    super.
-      gsub(PARENTHESIZED_PHRASES, "").
-      squish.
-      strip
+    super
+      .gsub(PARENTHESIZED_PHRASES, "")
+      .squish
+      .strip
   end
 
   private

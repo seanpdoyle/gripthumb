@@ -1,7 +1,7 @@
 class SongsController < ApplicationController
   def show
     render(locals: {
-      song: find_song,
+      song: find_song
     })
   end
 
@@ -18,10 +18,10 @@ class SongsController < ApplicationController
   def song_params
     params.permit!.slice(
       :artist,
-      :name,
+      :name
     ).merge(
       cache: Rails.cache,
-      tui: params[:id],
+      tui: params[:id]
     )
   end
 end

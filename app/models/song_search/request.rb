@@ -18,7 +18,7 @@ class SongSearch
     def search_term
       [
         song.artist,
-        song.name,
+        song.name
       ].map(&:downcase).join(" ")
     end
 
@@ -26,7 +26,7 @@ class SongSearch
       {
         page: "songsearch",
         select: "2",
-        searchterm: search_term,
+        searchterm: search_term
       }
     end
 

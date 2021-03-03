@@ -7,20 +7,20 @@ class SongSearchTest < ActiveSupport::TestCase
   test "results are scraped from SkateVideoSite" do
     stub_song_search_with_mock
     song_search = SongSearch.new(
-      song: mocked_result.song,
+      song: mocked_result.song
     )
 
     results = song_search.results
 
     assert_equal results, [
-      { part: { video: mocked_result.video, name: mocked_result.part } },
+      {part: {video: mocked_result.video, name: mocked_result.part}}
     ]
   end
 
   test "results strip qualifiers" do
     song = Song.new(
       artist: "New Order",
-      name: "Cries and Whispers [12\" Version Remastered]",
+      name: "Cries and Whispers [12\" Version Remastered]"
     )
     stub_song_search([song.artist, "cries and whispers"], html: :qualifiers)
     song_search = SongSearch.new(song: song)
@@ -30,8 +30,8 @@ class SongSearchTest < ActiveSupport::TestCase
     assert_equal results, [{
       part: {
         video: "Converse - Purple",
-        name: "Brian Delatorre and Al Davis",
-      },
+        name: "Brian Delatorre and Al Davis"
+      }
     }]
   end
 end

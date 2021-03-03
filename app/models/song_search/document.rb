@@ -14,8 +14,8 @@ class SongSearch
           {
             part: {
               video: video_title.text.squish,
-              name: name.text.gsub("-", "").squish,
-            },
+              name: name.text.delete("-").squish
+            }
           }
         end
       end
