@@ -31,5 +31,9 @@ module Gripthumb
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    if ENV["CANONICAL_HOST"]
+      config.middleware.use Rack::CanonicalHost, ENV["CANONICAL_HOST"]
+    end
   end
 end
