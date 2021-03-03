@@ -9,7 +9,8 @@ export default class extends Controller {
   async start() {
     const chunks = []
 
-    const recorder = new MediaRecorder(await navigator.mediaDevices.getUserMedia({ audio: true }))
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+    const recorder = new MediaRecorder(stream)
     recorder.ondataavailable = ({ data }) => { chunks.push(data) }
     recorder.onstop = () => {
       this.progressTarget.value = 0
@@ -23,6 +24,8 @@ export default class extends Controller {
       if (this.element instanceof HTMLFormElement) {
         this.element.requestSubmit()
       }
+
+      stream.getTracks().forEach(track => track.stop())
     }
 
     this.progressTarget.removeAttribute("value")
