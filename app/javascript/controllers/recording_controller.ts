@@ -1,6 +1,9 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
+  static targets = [ "progress" ]
+
+  declare readonly progressTarget: HTMLProgressElement
   timeout: NodeJS.Timeout
 
   async start() {
@@ -9,6 +12,8 @@ export default class extends Controller {
     const recorder = new MediaRecorder(await navigator.mediaDevices.getUserMedia({ audio: true }))
     recorder.ondataavailable = ({ data }) => { chunks.push(data) }
     recorder.onstop = () => {
+      this.progressTarget.value = 0
+
       const file = new File(chunks, "audio.ogg", { type: "audio/ogg; codecs=opus" })
 
       this.element.addEventListener("turbo:submit-start", (event: CustomEvent) => {
@@ -20,6 +25,7 @@ export default class extends Controller {
       }
     }
 
+    this.progressTarget.removeAttribute("value")
     recorder.start()
 
     clearTimeout(this.timeout)

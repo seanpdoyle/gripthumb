@@ -1,10 +1,14 @@
-<header class="song__header">
-  <p class="song__name"><%= @song.name %></p>
-  <p class="song__artist"><%= @song.artist %></p>
+<header class="flex justify-center border-b-2 p-4">
+  <h1 class="text-center">
+    <p class="font-sembold text-4xl"><%= @song.name %></p>
+    <p class="font-bold text-3xl"><%= @song.artist %></p>
+  </h1>
 </header>
 
-<ul class="parts">
+<section class="divide-y-2">
   <%= render(@song.parts) || render("songs/empty") %>
-</ul>
+</section>
 
-<%= render "recordings/form" %>
+<section class="fixed bottom-0 flex self-center items-center">
+  <%= render "recordings/form" %>
+</section>

@@ -1,3 +1,11 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+progress:indeterminate ~ .in-progress\:bg-red-600 {
+  @apply bg-red-600;
+}
+
+progress:indeterminate ~ .in-progress\:border-black {
+  @apply border-black;
+}
