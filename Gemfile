@@ -4,9 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.7.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 5.2.1"
+gem "rails", github: "rails/rails"
 # Use postgresql as the database for Active Record
-gem "pg", ">= 0.18", "< 2.0"
+gem "pg"
 # Use Puma as the app server
 gem "puma", "~> 3.11"
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -41,10 +41,10 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem "capybara", ">= 2.15"
+  gem "capybara"
   gem "selenium-webdriver"
-  # Easy installation and use of chromedriver to run system tests with Chrome
-  gem "chromedriver-helper"
+  # Easy installation and use of web drivers to run system tests with browsers
+  gem "webdrivers"
   gem "webmock"
 end
 
