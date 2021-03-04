@@ -19,7 +19,7 @@ class SongSearch
           matches = session.find("#soundtrack p").native.inner_html.split("<br>")
             .map { |html| Capybara.string(html) }
             .map { |row| row.text.split("–").map(&:squish) }
-            .select { |_, song| song.to_s.downcase.gsub(/[^[:word:]\s]/i, "").include?(term) }
+            .select { |_, *song| song.join(" ").to_s.downcase.gsub(/[^[:word:]\s]/i, "").include?(term) }
             .map { |part, _| Result.new(link.text.squish, part) }
 
           results.concat matches

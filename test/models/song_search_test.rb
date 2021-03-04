@@ -3,7 +3,7 @@ require "test_helper"
 class SongSearchTest < ActiveSupport::TestCase
   include VcrTestHelper
 
-  test "results are scraped from SkateVideoSite" do
+  test "results in the format of ($PART - $SONG) are scraped from SkateVideoSite" do
     song = Song.new artist: "Duster", name: "Echo, Bravo"
     search = SongSearch.new song: song
 
@@ -11,6 +11,16 @@ class SongSearchTest < ActiveSupport::TestCase
 
     assert_equal "The 917 Video", result.video
     assert_equal "Aaron Loreth", result.part
+  end
+
+  test "results in the format of ($PART - $ARTIST - $SONG) are scraped from SkateVideoSite" do
+    song = Song.new artist: "Type O Negative", name: "Drunk in Paris"
+    search = SongSearch.new song: song
+
+    result = search.results.first
+
+    assert_equal "FA World Entertainment – Dancing On Thin Ice", result.video
+    assert_equal "Kevin Rodrigues", result.part
   end
 
   test "results strip qualifiers" do
