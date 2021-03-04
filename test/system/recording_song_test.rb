@@ -6,7 +6,10 @@ class RecordingSongTestCase < ApplicationSystemTestCase
   test "Looks up the Skate Video soundtrack for a song" do
     visit root_path
     attach_file "File", file_fixture("in-dreams.m4a")
+
+    assert_no_text "Try again"
     click_on "Submit"
+    assert_no_text "Try again"
 
     assert_text "In Dreams"
     assert_text "Roy Orbison"
@@ -16,18 +19,36 @@ class RecordingSongTestCase < ApplicationSystemTestCase
     assert_text "Nestor Judkins"
   end
 
+  test "hides error message when songs are found" do
+    visit root_path
+
+    attach_file "File", file_fixture("silence.m4a")
+    assert_no_text "Try again"
+    click_on "Submit"
+    assert_text "Try again"
+
+    attach_file "File", file_fixture("in-dreams.m4a")
+    click_on "Submit"
+
+    assert_no_text "Try again"
+    assert_text "In Dreams"
+    assert_text "Roy Orbison"
+  end
+
   test "Gracefully handles unrecognizable songs" do
     visit root_path
     attach_file "File", file_fixture("silence.m4a")
-    click_on "Submit"
 
-    assert_button "Recognize song"
+    assert_no_text "Try again"
+    click_on "Submit"
+    assert_text "Try again"
   end
 
   test "Gracefully handles Audd errors" do
     visit root_path
-    click_on "Submit"
 
-    assert_button "Recognize song"
+    assert_no_text "Try again"
+    click_on "Submit"
+    assert_text "Try again"
   end
 end

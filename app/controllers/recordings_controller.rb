@@ -1,23 +1,25 @@
 class RecordingsController < ApplicationController
   def create
-    tui = redirect_params.delete(:tui).presence || -1
-
-    redirect_to song_url(tui, params: redirect_params), turbolinks: :advance
-  end
-
-  def new
-    render(locals: {
-      recording: Recording.new
-    })
+    render json: audd_response
   end
 
   private
 
-  def redirect_params
-    params.require(:recording).permit(
-      :artist,
-      :name,
-      :tui
-    )
+  def audd_response
+    endpoint = URI("https://api.audd.io")
+
+    post = Net::HTTP::Post.new(endpoint)
+    post.set_form(recording_params.to_h.to_a, "multipart/form-data")
+
+    http_response = Net::HTTP.start(endpoint.hostname, endpoint.port, use_ssl: true) { |http| http.request(post) }
+
+    JSON.parse(http_response.body)
+  end
+
+  def recording_params
+    params.permit(:return, :file)
+      .rewrite(:file) { |file| file&.open }
+      .merge(api_token: Rails.application.credentials.audd!.fetch(:api_token))
+      .compact
   end
 end

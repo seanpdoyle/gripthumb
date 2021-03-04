@@ -12,4 +12,6 @@ end
 
 Capybara.configure do |config|
   config.server = :puma, {Silent: true}
+  config.default_normalize_ws = true
+  config.default_max_wait_time = 3
 end

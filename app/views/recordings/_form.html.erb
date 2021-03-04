@@ -1,5 +1,7 @@
-<section id="recorder" class="recordings" data-controller="search" data-action="turbo:submit-start->search#handleNextResponse" data-turbo-permanent>
-  <form action="<%= audd_path %>" method="post" enctype="multipart/form-data" data-controller="recording">
+<section id="recorder" class="flex flex-col items-center space-y-2" data-controller="search" data-action="turbo:submit-start->search#handleNextResponse" data-turbo-permanent>
+  <h2 class="font-semibold text-2xl text-center" data-search-target="error" hidden>Try again</h2>
+
+  <form action="<%= recordings_path %>" method="post" enctype="multipart/form-data" data-controller="recording">
     <input type="hidden" name="return" value="apple_music,spotify">
 
     <progress class="sr-only" data-recording-target="progress" value="0"></progress>
