@@ -8,7 +8,7 @@ gem "rails", github: "rails/rails"
 # Use postgresql as the database for Active Record
 gem "pg"
 # Use Puma as the app server
-gem "puma", "~> 3.11"
+gem "puma", "~> 3.12"
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem "webpacker", "~> 5.2.0"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
