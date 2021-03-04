@@ -4,7 +4,6 @@ class Song < ApplicationModel
   attribute :artist, :string
   attribute :name, :string
   attribute :cache, default: {}
-  attribute :tui, :integer
 
   def parts
     search.results.map { |result| Part.new video: result.video, name: result.part }
