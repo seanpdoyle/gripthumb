@@ -12,6 +12,8 @@ class SongSearch
 
       results = Concurrent::Array.new
       threads = root.all("#main [itemscope] [itemprop=headline] a").map { |link|
+        video = link.text.squish
+
         Thread.new {
           session = Capybara::Session.new(:mechanize) { |config| config.app_host = "https://skatevideosite.com/" }
           session.visit link[:href]
@@ -19,8 +21,17 @@ class SongSearch
           matches = session.find("#soundtrack p").native.inner_html.split("<br>")
             .map { |html| Capybara.string(html) }
             .map { |row| row.text.split("–").map(&:squish) }
-            .select { |_, *song| song.join(" ").to_s.downcase.gsub(/[^[:word:]\s]/i, "").include?(term) }
-            .map { |part, _| Result.new(link.text.squish, part) }
+            .each_with_index
+            .select { |row| row.join(" ").to_s.downcase.gsub(/[^[:word:]\s]/i, "").include?(term) }
+            .map { |part, index|
+              if part.many?
+                Result.new(video, part.first)
+              else
+                one_based = index + 1
+
+                Result.new(video, "#{[one_based, one_based.ordinal].join} song")
+              end
+            }
 
           results.concat matches
         }

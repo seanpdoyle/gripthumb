@@ -1,0 +1,173 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://skatevideosite.com//?s=creedence%20clearwater%20revival%20effigy
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like
+        Gecko) Chrome/15.0.853.0 Safari/535.2
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Host:
+      - skatevideosite.com
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - '300'
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Date:
+      - Thu, 04 Mar 2021 20:03:16 GMT
+      Server:
+      - Apache
+      X-Redirect-By:
+      - WordPress
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      Location:
+      - https://www.skatevideosite.com//?s=creedence+clearwater+revival+effigy
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+      Keep-Alive:
+      - timeout=5, max=100
+      Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/html; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAwMAAAAAAAAAAAA=
+  recorded_at: Thu, 04 Mar 2021 20:03:17 GMT
+- request:
+    method: get
+    uri: https://www.skatevideosite.com//?s=creedence%20clearwater%20revival%20effigy
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like
+        Gecko) Chrome/15.0.853.0 Safari/535.2
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Host:
+      - www.skatevideosite.com
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - '300'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 04 Mar 2021 20:03:17 GMT
+      Server:
+      - Apache
+      X-Ua-Compatible:
+      - IE=edge
+      Link:
+      - <https://www.skatevideosite.com/wp-json/>; rel="https://api.w.org/"
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+      Keep-Alive:
+      - timeout=5, max=100
+      Connection:
+      - Keep-Alive
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - text/html; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+  recorded_at: Thu, 04 Mar 2021 20:03:17 GMT
+- request:
+    method: get
+    uri: https://www.skatevideosite.com/sure/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip,deflate,identity
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like
+        Gecko) Chrome/15.0.853.0 Safari/535.2
+      Accept-Charset:
+      - ISO-8859-1,utf-8;q=0.7,*;q=0.7
+      Accept-Language:
+      - en-us,en;q=0.5
+      Host:
+      - www.skatevideosite.com
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - '300'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 04 Mar 2021 20:03:18 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Last-Modified:
+      - Thu, 04 Mar 2021 20:01:15 GMT
+      Etag:
+      - '"17ab-5bcbb6e12c431"'
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '6059'
+      Referrer-Policy:
+      - no-referrer-when-downgrade
+      Keep-Alive:
+      - timeout=5, max=100
+      Connection:
+      - Keep-Alive
+      Content-Type:
+      - text/html; charset=UTF-8
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+  recorded_at: Thu, 04 Mar 2021 20:03:18 GMT
+recorded_with: VCR 6.0.0

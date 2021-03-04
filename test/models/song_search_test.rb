@@ -23,6 +23,16 @@ class SongSearchTest < ActiveSupport::TestCase
     assert_equal "Kevin Rodrigues", result.part
   end
 
+  test "results in the format of ($SONG) are scraped from SkateVideoSite" do
+    song = Song.new artist: "Creedence Clearwater Revival", name: "Effigy"
+    search = SongSearch.new song: song
+
+    result = search.results.first
+
+    assert_equal "Sure", result.video
+    assert_equal "2nd song", result.part
+  end
+
   test "results strip qualifiers" do
     song = Song.new artist: "New Order", name: "Cries and Whispers [12\" Version Remastered]"
     search = SongSearch.new song: song
