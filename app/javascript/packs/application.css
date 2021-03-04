@@ -2,6 +2,10 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
 progress:indeterminate ~ .in-progress\:bg-red-600 {
   @apply bg-red-600;
 }
