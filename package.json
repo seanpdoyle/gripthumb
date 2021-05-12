@@ -12,7 +12,7 @@
     "babel-plugin-transform-typescript": "^7.0.0-alpha.19",
     "fork-ts-checker-webpack-plugin": "^6.1.0",
     "form-request-submit-polyfill": "^2.0.0",
-    "postcss": "^7",
+    "postcss": "^8",
     "stimulus": "^2.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "ts-loader": "^6.0.4",
