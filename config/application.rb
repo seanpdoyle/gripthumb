@@ -35,5 +35,7 @@ module Gripthumb
     if ENV["CANONICAL_HOST"]
       config.middleware.use Rack::CanonicalHost, ENV["CANONICAL_HOST"]
     end
+
+    config.x.audd = ActiveSupport::OrderedOptions.new.update config_for(:audd)
   end
 end

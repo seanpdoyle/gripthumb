@@ -1,0 +1,2 @@
+shared:
+  api_token: <%= ENV.fetch("AUDD_API_TOKEN", Rails.application.credentials.audd!.fetch(:api_token)) %>

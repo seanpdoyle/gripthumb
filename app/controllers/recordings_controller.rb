@@ -19,7 +19,7 @@ class RecordingsController < ApplicationController
   def recording_params
     params.permit(:return, :file)
       .rewrite(:file) { |file| file&.open }
-      .merge(api_token: Rails.application.credentials.audd!.fetch(:api_token))
+      .merge(api_token: Rails.configuration.x.audd.api_token)
       .compact
   end
 end
