@@ -1,4 +1,5 @@
 require "application_system_test_case"
+require "test_helpers/vcr_test_helper"
 
 class RecordingSongTestCase < ApplicationSystemTestCase
   include VcrTestHelper
