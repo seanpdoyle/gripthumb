@@ -22,8 +22,6 @@ gem "mini_magick", "~> 4.8"
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", ">= 1.1.0", require: false
 
-gem "capybara"
-gem "capybara-mechanize"
 gem "rack-canonical-host", "~> 1.0"
 
 group :development, :test do
@@ -42,6 +40,7 @@ group :development do
 end
 
 group :test do
+  gem "capybara"
   # Adds support for Capybara system testing and selenium driver
   gem "selenium-webdriver"
   # Easy installation and use of web drivers to run system tests with browsers

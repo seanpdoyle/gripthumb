@@ -7,39 +7,16 @@ class SongSearch
     end
 
     def results
-      root = Capybara::Session.new(:mechanize) { |config| config.app_host = "https://skatevideosite.com/" }
-      root.visit root_url(s: term)
+      raw_json = URI.parse(search_url(search_text: term)).open.read
+      response = JSON.parse(raw_json, symbolize_names: true)
 
-      results = Concurrent::Array.new
-      threads = root.all("#main [itemscope] [itemprop=headline] a").map { |link|
-        video = link.text.squish
+      response.fetch(:song_results, []).flat_map do |search_result|
+        video = search_result.fetch(:title)
 
-        Thread.new {
-          session = Capybara::Session.new(:mechanize) { |config| config.app_host = "https://skatevideosite.com/" }
-          session.visit link[:href]
-
-          matches = session.find("#soundtrack p").native.inner_html.split("<br>")
-            .map { |html| Capybara.string(html) }
-            .map { |row| row.text.split("–").map(&:squish) }
-            .each_with_index
-            .select { |row| row.join(" ").to_s.downcase.gsub(/[^[:word:]\s]/i, "").include?(term) }
-            .map { |part, index|
-              if part.many?
-                Result.new(video, part.first)
-              else
-                one_based = index + 1
-
-                Result.new(video, "#{[one_based, one_based.ordinal].join} song")
-              end
-            }
-
-          results.concat matches
-        }
-      }
-
-      threads.each(&:join)
-
-      results
+        search_result.fetch(:soundtracks, []).map do |soundtrack|
+          Result.new(video, soundtrack.fetch(:section))
+        end
+      end
     end
 
     private
@@ -48,8 +25,8 @@ class SongSearch
       [@song.artist, @song.name].join(" ").squish.downcase.gsub(/[^[:word:]\s]/i, "")
     end
 
-    def root_url(params)
-      "/?" + params.to_query
+    def search_url(params)
+      "https://skatevideosite.com/api/search?" + params.to_query
     end
   end
 end
