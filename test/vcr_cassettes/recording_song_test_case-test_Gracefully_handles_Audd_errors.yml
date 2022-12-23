@@ -2,89 +2,6 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.audd.io/audd/
-    body:
-      encoding: ASCII-8BIT
-      string: "------WebKitFormBoundarymTtVTUptSwBz61Lz\r\nContent-Disposition: form-data;
-        name=\"return\"\r\n\r\napple_music,spotify\r\n------WebKitFormBoundarymTtVTUptSwBz61Lz\r\nContent-Disposition:
-        form-data; name=\"file\"; filename=\"\"\r\nContent-Type: application/octet-stream\r\n\r\n\r\n------WebKitFormBoundarymTtVTUptSwBz61Lz--\r\n"
-    headers:
-      Version:
-      - HTTP/1.1
-      Host:
-      - api.audd.io
-      Connection:
-      - keep-alive
-      Accept:
-      - text/vnd.turbo-stream.html, text/html, application/xhtml+xml
-      User-Agent:
-      - Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_2) AppleWebKit/537.36 (KHTML,
-        like Gecko) HeadlessChrome/89.0.4389.72 Safari/537.36
-      Origin:
-      - http://127.0.0.1:62682
-      Sec-Fetch-Site:
-      - same-origin
-      Sec-Fetch-Mode:
-      - cors
-      Sec-Fetch-Dest:
-      - empty
-      Referer:
-      - http://127.0.0.1:62682/recordings/new
-      Accept-Encoding:
-      - gzip, deflate, br
-      Accept-Language:
-      - en-US
-      Cookie:
-      - ''
-      X-Forwarded-For:
-      - 127.0.0.1
-      Content-Length:
-      - '300'
-      Content-Type:
-      - multipart/form-data; boundary=----WebKitFormBoundarymTtVTUptSwBz61Lz
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Thu, 04 Mar 2021 15:41:27 GMT
-      Content-Type:
-      - application/json
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Set-Cookie:
-      - __cfduid=d486f14b80594ca77f7e3407aafce6c1b1614872487; expires=Sat, 03-Apr-21
-        15:41:27 GMT; path=/; domain=.audd.io; HttpOnly; SameSite=Lax; Secure
-      Access-Control-Allow-Origin:
-      - "*"
-      Cf-Cache-Status:
-      - DYNAMIC
-      Cf-Request-Id:
-      - '089f7fbe3f0000e758f83fc000000001'
-      Expect-Ct:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
-      Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=B3yM4vsqS1WR9jZOkKCVk98OAdDaskQu1BLglzCuTjZZDkpPMR%2FKX4pfRCElJmMKD6kiDjD52xqHh4G6MXN6ydEN%2BMDkavppbNC8lvC9OuXvr2UYZJ5VGw%3D%3D"}],"max_age":604800,"group":"cf-nel"}'
-      Nel:
-      - '{"max_age":604800,"report_to":"cf-nel"}'
-      Server:
-      - cloudflare
-      Cf-Ray:
-      - 62ac3576cf65e758-EWR
-      Content-Encoding:
-      - br
-      Alt-Svc:
-      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        IXQFACC+73LK5n3dY0iicHiE6Zg3Znqw11vI/d/LP7PZFSYxxSSaTelS043OLVFt98qBYVJfX0i1dRcwCB5qKH+N9dwOvpzOqNH8FYx79HOeqtrSq+3K5MLZfiwyTjPZpdWJ22ixIjFQNWNkOz2tUA1dD3SLlexEA1WNgpWi43+wewiHdj7gryDUx3A0g/f06UMEI1GiVb+ULHNt0xsK9zcmMKAQ0wLGJsd94rJBYtw/U5h9Z0A91N6gf9Qwe/EjQSFTQpGsdmmvMP8NAw==
-  recorded_at: Thu, 04 Mar 2021 15:41:27 GMT
-- request:
-    method: post
     uri: https://api.audd.io/
     body:
       encoding: US-ASCII
@@ -106,38 +23,40 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 04 Mar 2021 16:37:00 GMT
+      - Fri, 23 Dec 2022 21:17:33 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Set-Cookie:
-      - __cfduid=df877b9bb58c3dff389dbdd9600fe11d21614875820; expires=Sat, 03-Apr-21
-        16:37:00 GMT; path=/; domain=.audd.io; HttpOnly; SameSite=Lax; Secure
       Access-Control-Allow-Origin:
       - "*"
+      X-Content-Type-Options:
+      - nosniff
       Cf-Cache-Status:
       - DYNAMIC
-      Cf-Request-Id:
-      - '089fb299a70000e6fcad821000000001'
-      Expect-Ct:
-      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server-Timing:
+      - cf-q-config;dur=6.9999987317715e-06
       Report-To:
-      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report?s=A1OGJP3gvS09xy2%2BEwI5Ii9IiUrvNEciNXegzR8m1KlmemmcUm%2FhapS4SHQQ6Wpk2PXhFHTMjVTtHF0O4KlpiMhNvFsjyklyyZLr7qmj%2F9rr6aRAkuhSwQ%3D%3D"}],"max_age":604800,"group":"cf-nel"}'
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=8fwWZ3WRobBvMX3z3Wf%2FMcmb1xEn9IOoq06VngOfGeKdrok6QluANlLT7DEf7CnGuVY9QELQSecsSfhjPoq%2BqOw8HjIK0JN%2FEd2D4gf5SmcKpzf0DBHUg8Tr%2BlJI"}],"group":"cf-nel","max_age":604800}'
       Nel:
-      - '{"report_to":"cf-nel","max_age":604800}'
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Strict-Transport-Security:
+      - max-age=2592000; includeSubDomains; preload
       Server:
       - cloudflare
       Cf-Ray:
-      - 62ac86d5df81e6fc-EWR
+      - 77e41fe9bf398c63-EWR
       Alt-Svc:
-      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400
+      - h3=":443"; ma=86400, h3-29=":443"; ma=86400
     body:
       encoding: ASCII-8BIT
       string: '{"status":"error","error":{"error_code":700,"error_message":"Recognition
-        failed: you didn''t send file via POST or file url as `url` param."},"requested_params":{"return":"apple_music,spotify","method":"recognize"},"see
+        failed: you didn''t send file via POST or file url as `url` param. If you
+        sent the request by POST, please check the protocol you''re using: the URL
+        should start with https:// (http:// requests get redirected so we don''t receive
+        any data from you) and that your Content-Type header equals to `multipart/form-data`."},"request_params":{"return":"apple_music,spotify","api_token":"6***a"},"request_api_method":"recognize","request_http_method":"POST","see
         api documentation":"https://docs.audd.io","contact us":"api@audd.io"}'
-  recorded_at: Thu, 04 Mar 2021 16:37:00 GMT
+  recorded_at: Fri, 23 Dec 2022 21:17:33 GMT
 recorded_with: VCR 6.0.0

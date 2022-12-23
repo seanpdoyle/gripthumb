@@ -9,7 +9,7 @@ class SongSearchTest < ActiveSupport::TestCase
 
     result = search.results.first
 
-    assert_equal "The 917 Video", result.video
+    assert_equal "Call Me (917) - The (917) Video", result.video
     assert_equal "Aaron Loreth", result.part
   end
 
@@ -19,7 +19,7 @@ class SongSearchTest < ActiveSupport::TestCase
 
     result = search.results.first
 
-    assert_equal "FA World Entertainment – Dancing On Thin Ice", result.video
+    assert_equal "FA World Entertainment - Dancing On Thin Ice", result.video
     assert_equal "Kevin Rodrigues", result.part
   end
 
@@ -30,7 +30,7 @@ class SongSearchTest < ActiveSupport::TestCase
     result = search.results.first
 
     assert_equal "Sure", result.video
-    assert_equal "2nd song", result.part
+    assert_equal "2", result.part
   end
 
   test "results strip qualifiers" do
@@ -39,7 +39,7 @@ class SongSearchTest < ActiveSupport::TestCase
 
     result = search.results.first
 
-    assert_equal "Converse – Purple", result.video
+    assert_equal "Converse - Purple", result.video
     assert_equal "Brian Delatorre and Al Davis", result.part
   end
 

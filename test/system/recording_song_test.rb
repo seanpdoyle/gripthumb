@@ -13,9 +13,9 @@ class RecordingSongTestCase < ApplicationSystemTestCase
 
     assert_text "In Dreams"
     assert_text "Roy Orbison"
-    assert_text "Isle – Vase"
+    assert_text "Isle - Vase"
     assert_text "Credits"
-    assert_text "Enjoi – Oververt"
+    assert_text "Enjoi - Oververt"
     assert_text "Nestor Judkins"
   end
 
