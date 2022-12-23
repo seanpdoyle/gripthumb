@@ -13,10 +13,14 @@ FileUtils.chdir APP_ROOT do
   # This script is idempotent, so that you can run it at any time and get an expectable outcome.
   # Add necessary setup steps to this file.
 
-  puts "== Installing dependencies =="
+  puts "== Installing Server dependencies =="
   system! "gem install bundler --conservative"
   system("bundle check") || system!("bundle install")
-  system! "bin/rails yarn:install"
+
+  puts "== Installing Client dependencies =="
+  system! "bin/rails tailwindcss:build"
+  system! "bin/yarn install"
+  system! "bin/yarn build"
 
   # puts "\n== Copying sample files =="
   # unless File.exist?("config/database.yml")

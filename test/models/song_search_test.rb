@@ -1,4 +1,5 @@
 require "test_helper"
+require "test_helpers/vcr_test_helper"
 
 class SongSearchTest < ActiveSupport::TestCase
   include VcrTestHelper
