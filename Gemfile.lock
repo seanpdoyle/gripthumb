@@ -203,6 +203,8 @@ GEM
     standard (0.13.0)
       rubocop (= 1.10.0)
       rubocop-performance (= 1.9.2)
+    tailwindcss-rails (2.0.21)
+      railties (>= 6.0.0)
     thor (1.1.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -250,7 +252,9 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
+  sprockets-rails
   standard
+  tailwindcss-rails
   tzinfo-data
   vcr
   web-console (>= 3.3.0)
@@ -262,4 +266,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.2.12
+   2.3.14
