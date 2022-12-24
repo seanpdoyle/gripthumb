@@ -4,9 +4,9 @@
   <form action="<%= recordings_path %>" method="post" enctype="multipart/form-data" data-controller="recording">
     <input type="hidden" name="return" value="apple_music,spotify">
 
-    <progress class="sr-only" data-recording-target="progress" value="0"></progress>
+    <progress class="peer sr-only" data-recording-target="progress" value="0"></progress>
 
-    <button type="button" class="rounded-full bg-black border-8 w-48 h-48 in-progress:border-black in-progress:bg-red-600" data-action="click->recording#start">
+    <button type="button" class="rounded-full bg-black border-8 w-48 h-48 peer-indeterminate:border-black peer-indeterminate:bg-red-600" data-action="click->recording#start">
       <span class="sr-only">Recognize song</span>
     </button>
 

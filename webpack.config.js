@@ -1,5 +1,6 @@
 const path    = require("path")
 const webpack = require("webpack")
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin")
 
 module.exports = {
   mode: "production",
@@ -15,6 +16,23 @@ module.exports = {
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
+    }),
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        configFile: path.resolve(__dirname, "./tsconfig.json"),
+      },
+      async: false,
     })
-  ]
+  ],
+  resolve: {
+    extensions: [".ts", ".js"]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        loader: "ts-loader"
+      }
+    ]
+  }
 }
