@@ -1,3 +1,5 @@
+require "net/http"
+
 class SongSearch
   class Request
     def initialize(song, cache: {})

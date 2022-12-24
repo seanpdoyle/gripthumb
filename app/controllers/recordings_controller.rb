@@ -1,3 +1,5 @@
+require "net/http"
+
 class RecordingsController < ApplicationController
   def create
     render json: audd_response
