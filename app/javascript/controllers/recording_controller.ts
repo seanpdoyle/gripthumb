@@ -1,10 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
+import { TurboBeforeFetchResponseEvent } from "@hotwired/turbo"
 
 export default class extends Controller<HTMLFormElement> {
-  static targets = [ "progress" ]
+  static targets = [ "error", "progress" ]
 
+  declare readonly errorTargets: HTMLElement[]
   declare readonly progressTarget: HTMLProgressElement
-  timeout: NodeJS.Timeout
+  timeoutId: NodeJS.Timeout
 
   async start() {
     const chunks = []
@@ -29,7 +31,13 @@ export default class extends Controller<HTMLFormElement> {
     this.progressTarget.removeAttribute("value")
     recorder.start()
 
-    clearTimeout(this.timeout)
-    this.timeout = setTimeout(() => recorder.stop(), 8000)
+    clearTimeout(this.timeoutId)
+    this.timeoutId = setTimeout(() => recorder.stop(), 8000)
+  }
+
+  presentError({ detail: { fetchResponse } }: TurboBeforeFetchResponseEvent) {
+    for (const errorTarget of this.errorTargets) {
+      errorTarget.hidden = fetchResponse.succeeded
+    }
   }
 }

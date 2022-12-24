@@ -1,12 +1,12 @@
-<section id="recorder" class="flex flex-col items-center space-y-2" data-controller="search" data-action="turbo:submit-start->search#handleNextResponse" data-turbo-permanent>
-  <h2 class="font-semibold text-2xl text-center" data-search-target="error" hidden>Try again</h2>
+<section id="recorder" class="flex flex-col items-center">
+  <form action="<%= recordings_path %>" method="post" enctype="multipart/form-data" data-controller="recording" data-action="turbo:before-fetch-response->recording#presentError">
+    <h2 class="font-semibold text-2xl text-center" data-recording-target="error" hidden>Try again</h2>
 
-  <form action="<%= recordings_path %>" method="post" enctype="multipart/form-data" data-controller="recording">
     <input type="hidden" name="return" value="apple_music,spotify">
 
     <progress class="peer sr-only" data-recording-target="progress" value="0"></progress>
 
-    <button type="button" class="rounded-full bg-black border-8 w-48 h-48 peer-indeterminate:border-black peer-indeterminate:bg-red-600" data-action="click->recording#start">
+    <button type="button" class="rounded-full bg-black border-8 w-48 h-48 mt-4 peer-indeterminate:border-black peer-indeterminate:bg-red-600" data-action="click->recording#start">
       <span class="sr-only">Recognize song</span>
     </button>
 
@@ -15,10 +15,5 @@
       <input type="file" id="file" name="file">
       <button type="submit">Submit</button>
     </fieldset>
-  </form>
-
-  <form method="get" action="<%= parts_path %>" data-search-target="form">
-    <input type="hidden" name="artist">
-    <input type="hidden" name="title">
   </form>
 </section>
