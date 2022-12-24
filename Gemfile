@@ -39,11 +39,9 @@ end
 
 group :test do
   gem "capybara"
-  # Adds support for Capybara system testing and selenium driver
-  gem "selenium-webdriver"
+  gem "cuprite", require: "capybara/cuprite"
   # Easy installation and use of web drivers to run system tests with browsers
   gem "vcr"
-  gem "webdrivers"
   gem "webmock"
 end
 
