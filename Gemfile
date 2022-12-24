@@ -24,6 +24,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 
 gem "rack-canonical-host", "~> 1.0"
 gem "sprockets-rails"
+gem "jsbundling-rails"
 gem "tailwindcss-rails"
 
 group :development, :test do
