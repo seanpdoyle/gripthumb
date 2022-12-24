@@ -1,6 +1,6 @@
-import { Controller } from "stimulus"
+import { Controller } from "@hotwired/stimulus"
 
-export default class extends Controller {
+export default class extends Controller<HTMLFormElement> {
   static targets = [ "progress" ]
 
   declare readonly progressTarget: HTMLProgressElement
@@ -21,9 +21,7 @@ export default class extends Controller {
         event.detail.formSubmission.formData.set("file", file)
       }, { once: true })
 
-      if (this.element instanceof HTMLFormElement) {
-        this.element.requestSubmit()
-      }
+      this.element.requestSubmit()
 
       stream.getTracks().forEach(track => track.stop())
     }
