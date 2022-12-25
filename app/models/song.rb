@@ -6,7 +6,7 @@ class Song < ApplicationModel
   attribute :cache, default: {}
 
   def parts
-    search.results.map { |result| Part.new video: result.video, name: result.part }
+    Parts::Search.new(song: self, cache:).results
   end
 
   def name
@@ -14,11 +14,5 @@ class Song < ApplicationModel
       .gsub(PARENTHESIZED_PHRASES, "")
       .squish
       .strip
-  end
-
-  private
-
-  def search
-    SongSearch.new(song: self, cache: cache)
   end
 end

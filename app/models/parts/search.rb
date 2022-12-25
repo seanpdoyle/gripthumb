@@ -1,6 +1,4 @@
-class SongSearch < ApplicationModel
-  Result = Data.define(:video, :part)
-
+class Parts::Search < ApplicationModel
   attribute :cache, default: {}
   attribute :song
 
@@ -12,7 +10,9 @@ class SongSearch < ApplicationModel
         video = search_result.fetch(:title)
 
         search_result.fetch(:soundtracks, []).map do |soundtrack|
-          Result.new(video, soundtrack.fetch(:section))
+          name = soundtrack.fetch(:section)
+
+          Part.new(video:, name:)
         end
       end
     end
